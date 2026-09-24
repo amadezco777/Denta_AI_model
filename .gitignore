@@ -1,0 +1,127 @@
+# ---------------------------------------------------------------------------
+# Datos (datasets, imágenes médicas, anotaciones procesadas)
+# Nada de data/ se versiona salvo los .gitkeep y la documentación local.
+# ---------------------------------------------------------------------------
+data/**
+!data/**/
+!data/**/.gitkeep
+!data/**/README.md
+
+# Imágenes médicas y formatos de radiografía, en cualquier ubicación
+*.dcm
+*.dicom
+*.nii
+*.nii.gz
+*.mha
+*.mhd
+*.raw
+*.tif
+*.tiff
+*.png
+*.jpg
+*.jpeg
+*.bmp
+*.webp
+# Excepción: recursos gráficos de la documentación
+!docs/assets/**
+
+# ---------------------------------------------------------------------------
+# Modelos entrenados y exportaciones
+# ---------------------------------------------------------------------------
+models/**
+!models/**/
+!models/**/.gitkeep
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.engine
+*.tflite
+*.pb
+*.h5
+*.torchscript
+*.mlmodel
+*.bin
+*.safetensors
+
+# ---------------------------------------------------------------------------
+# Artefactos generados durante el entrenamiento
+# ---------------------------------------------------------------------------
+runs/**
+!runs/.gitkeep
+wandb/
+mlruns/
+lightning_logs/
+tensorboard/
+events.out.tfevents.*
+*.log
+reports/figures/**
+!reports/figures/.gitkeep
+
+# ---------------------------------------------------------------------------
+# Entornos virtuales y variables de entorno
+# ---------------------------------------------------------------------------
+.venv/
+venv/
+env/
+ENV/
+.conda/
+conda-env/
+.python-version
+.env
+.env.*
+!.env.example
+
+# ---------------------------------------------------------------------------
+# Python
+# ---------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# ---------------------------------------------------------------------------
+# Notebooks
+# ---------------------------------------------------------------------------
+.ipynb_checkpoints/
+notebooks/**/*-scratch.ipynb
+
+# ---------------------------------------------------------------------------
+# Archivos temporales / comprimidos / sistema
+# ---------------------------------------------------------------------------
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---------------------------------------------------------------------------
+# IDEs
+# ---------------------------------------------------------------------------
+.idea/
+.vscode/
+!.vscode/extensions.json
+*.iml

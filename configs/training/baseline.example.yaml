@@ -1,0 +1,33 @@
+# PLANTILLA - no usar tal cual.
+#
+# Configuracion del entrenamiento baseline. Valores orientativos: se ajustan
+# cuando se conozca el tamano real del dataset maestro y el hardware
+# disponible. El baseline no busca el mejor resultado, busca una referencia
+# reproducible contra la que comparar.
+
+model: yolo11n.pt          # pesos preentrenados de partida
+data: ../data/dataset_master.yaml
+
+epochs: 50
+batch: 16
+imgsz: 640
+seed: 42
+device: cpu                # "0" para GPU
+
+optimizer: auto
+lr0: 0.01
+patience: 20
+
+project: ../../runs
+name: baseline
+
+# Aumento de datos: conservador. En radiografia el volteo horizontal es
+# plausible (arcadas simetricas) pero el vertical no tiene sentido clinico.
+augment:
+  fliplr: 0.5
+  flipud: 0.0
+  degrees: 5.0
+  scale: 0.2
+  hsv_h: 0.0
+  hsv_s: 0.0
+  hsv_v: 0.2

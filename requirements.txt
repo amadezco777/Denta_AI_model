@@ -1,0 +1,36 @@
+# Dependencias del proyecto.
+# Se añaden conforme se necesitan, no por adelantado.
+#
+# Instalación:
+#   python -m venv .venv
+#   .venv\Scripts\activate
+#   pip install -r requirements.txt
+
+# --- Núcleo: manipulación de datos e imágenes ---
+numpy>=1.26
+pandas>=2.2
+opencv-python>=4.10
+pillow>=10.4
+pyyaml>=6.0
+
+# --- Análisis exploratorio ---
+matplotlib>=3.9
+jupyter>=1.1
+
+# --- Utilidades ---
+tqdm>=4.66
+python-dotenv>=1.0
+
+# --- Calidad de código y pruebas ---
+pytest>=8.3
+
+# ---------------------------------------------------------------------------
+# Pendiente: añadir cuando se llegue a la fase de entrenamiento.
+#
+# PyTorch se instala con el índice que corresponda a la GPU/CUDA de la máquina;
+# ver https://pytorch.org/get-started/locally/ antes de fijar una versión aquí.
+#
+#   torch
+#   torchvision
+#   ultralytics
+# ---------------------------------------------------------------------------

@@ -1,0 +1,26 @@
+# PLANTILLA - no usar tal cual.
+#
+# Definicion del dataset maestro en formato Ultralytics YOLO.
+# El archivo real se genera tras construir data/processed/, y el orden de
+# `names` fija los ids de clase: cambiarlo invalida todas las anotaciones ya
+# generadas y los modelos ya entrenados.
+
+path: ../../data/processed/master
+train: images/train
+val: images/val
+test: images/test
+
+names:
+  0: caries
+  1: lesion_periapical
+  2: diente_impactado
+  3: restauracion
+  4: endodoncia
+  5: corona
+
+# Metadatos del proyecto (no los lee Ultralytics; sirven de trazabilidad)
+meta:
+  taxonomy_version: 0.1.0-draft
+  built_at: null
+  source_datasets: []
+  split_strategy: estratificado por clase, sin fuga entre particiones

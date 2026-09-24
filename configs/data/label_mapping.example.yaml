@@ -1,0 +1,34 @@
+# PLANTILLA - no usar tal cual.
+#
+# Mapeo de las etiquetas originales de un dataset a la taxonomia del proyecto.
+# Un archivo por dataset: configs/data/mapping_<dataset>.yaml
+#
+# Toda etiqueta original del dataset debe aparecer aqui, incluso para
+# descartarla (target: null). Si el script de conversion encuentra una etiqueta
+# que no esta en este archivo, debe fallar en vez de ignorarla en silencio.
+
+dataset: nombre_del_dataset
+source_format: coco        # coco | voc | yolo | csv | mask
+notes: >
+  Observaciones sobre el criterio de anotacion original y las decisiones
+  tomadas al mapear.
+
+mapping:
+  - source: "Caries"
+    target: caries
+  - source: "Deep Caries"
+    target: caries
+    note: "Se colapsa la profundidad: la taxonomia propia no la distingue."
+  - source: "Periapical Lesion"
+    target: lesion_periapical
+  - source: "Impacted Tooth"
+    target: diente_impactado
+  - source: "Filling"
+    target: restauracion
+  - source: "Root Canal Treatment"
+    target: endodoncia
+  - source: "Crown"
+    target: corona
+  - source: "Implant"
+    target: null
+    note: "Descartada: fuera de la taxonomia v0.1.0."
