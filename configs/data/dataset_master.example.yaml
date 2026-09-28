@@ -16,11 +16,12 @@ names:
   2: diente_impactado
   3: restauracion
   4: endodoncia
-  5: corona
+  5: protesis_fija
+  6: implante
 
 # Metadatos del proyecto (no los lee Ultralytics; sirven de trazabilidad)
 meta:
-  taxonomy_version: 0.1.0-draft
+  taxonomy_version: 0.2.0
   built_at: null
   source_datasets: []
   split_strategy: estratificado por clase, sin fuga entre particiones

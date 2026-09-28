@@ -1,0 +1,80 @@
+# Mapeo de muresanu_cluj a la taxonomia del proyecto (v0.2.0).
+#
+# Se aplica sobre la version LIMPIA (data/interim/muresanu_cluj/), no sobre
+# data/raw/: el remapeo del bloque 101-199, la exclusion del bloque 1-30 y el
+# consenso de duplicados ya estan hechos por
+# scripts/dataset_conversion/muresanu_dedup.py. Los ids de origen de este
+# archivo son, por tanto, los de legend.txt.
+#
+# Toda etiqueta de origen aparece aqui, incluso para descartarla
+# (target: null). El script de conversion debe fallar si encuentra un id que
+# no este listado.
+
+dataset: muresanu_cluj
+source_format: yolo
+taxonomy_version: 0.2.0
+notes: >
+  Caja a nivel de lesion o estructura (caries, periodontitis apical,
+  tratamientos) y de diente completo solo para el diente impactado, igual que
+  en los demas datasets. Descartar una clase hace que sus cajas desaparezcan y
+  la zona cuente como fondo; es correcto mientras el objeto descartado no
+  pertenezca a ninguna clase conservada. Cajas por clase en train (tras la
+  limpieza) entre parentesis.
+
+mapping:
+  - source: 0
+    source_name: "Implant"
+    target: implante
+    note: "343 cajas (288 en train). Acuerdo entre anotadores 72 %. Evaluable tambien con khurshid_opg."
+  - source: 1
+    source_name: "Prosthetic restoration"
+    target: protesis_fija
+    note: "1.098 en train. Probablemente incluye coronas y puentes; por eso no se llama 'corona'."
+  - source: 2
+    source_name: "Obturation"
+    target: restauracion
+    note: "3.242 en train. Acuerdo 49 %."
+  - source: 3
+    source_name: "Endodontic treatment"
+    target: endodoncia
+    note: "2.269 en train. Acuerdo 61 %."
+  - source: 4
+    source_name: "Carious lesion"
+    target: caries
+    note: "2.062 en train. Superficiales y profundas en la misma clase. Acuerdo 49 %."
+  - source: 5
+    source_name: "Bone resorbtion"
+    target: null
+    note: "Descartada: acuerdo entre anotadores del 34 %, demasiado ruidosa."
+  - source: 6
+    source_name: "Impacted tooth"
+    target: diente_impactado
+    note: "570 en train. Caja = diente completo. Acuerdo 87 %."
+  - source: 7
+    source_name: "Apical periodontitis"
+    target: lesion_periapical
+    note: "710 en train, la clase mas escasa. Acuerdo 40 %. Riesgo de atajo endodoncia -> lesion (ver taxonomy.md)."
+  - source: 8
+    source_name: "Root fragment"
+    target: null
+    note: "Descartada en v0.2.0: acuerdo no medido y ningun otro dataset la anota. Candidata para una version futura."
+  - source: 9
+    source_name: "Furcation lesion"
+    target: null
+    note: "Descartada: 193 cajas en train."
+  - source: 10
+    source_name: "Apical surgery"
+    target: null
+    note: "Descartada: 50 cajas en train."
+  - source: 11
+    source_name: "Root resorption"
+    target: null
+    note: "Descartada: 3 cajas en todo el dataset."
+  - source: 12
+    source_name: "Orthodontic device"
+    target: null
+    note: "Descartada: no es un hallazgo diagnostico."
+  - source: 13
+    source_name: "Surgical device"
+    target: null
+    note: "Descartada: no es un hallazgo diagnostico."
