@@ -1,0 +1,75 @@
+======================================================================
+EDA MENDELEY - lesiones periapicales (solo imagenes originales)
+======================================================================
+Imagenes:    C:\Dental AI\data\raw\mendeley_periapical\Periapical Lesions\Original JPG Images
+Anotaciones: C:\Dental AI\data\raw\mendeley_periapical\Periapical Lesions\Image Annots
+
+JPG originales en disco: 3924
+Imagenes analizadas (con XML y JPG legibles): 3924
+
+----------------------------------------------------------------------
+1. INTEGRIDAD (todo esto deberia ser 0)
+----------------------------------------------------------------------
+Imagenes sin XML:                                 0
+XML ilegibles:                                    0
+JPG con cabecera ilegible:                        0
+Tamano en el XML distinto del JPG real:           0
+Imagenes sin ninguna caja:                        0
+Cajas con <name> fuera de ['3', '4', '5']:          0
+Cajas con ancho o alto <= 0 o no numericas:       0
+Cajas que se salen de la imagen:                  0
+Nombres de origen (<filename>) repetidos:         0
+
+----------------------------------------------------------------------
+2. CAJAS POR VALOR DE <name> (todas mapean a lesion_periapical)
+----------------------------------------------------------------------
+name    cajas  % cajas  imagenes  % imag.
+3        4277    63.4%      2797    71.3%
+4        1755    26.0%      1388    35.4%
+5         709    10.5%       655    16.7%
+TOTAL    6741
+
+----------------------------------------------------------------------
+3. CAJAS POR IMAGEN
+----------------------------------------------------------------------
+min 1.0 / mediana 1.0 / media 1.7 / max 13.0
+  1 caja(s): 2262 imagenes
+  2 caja(s): 1006 imagenes
+  3 caja(s): 393 imagenes
+  4 caja(s): 151 imagenes
+  5 caja(s): 49 imagenes
+  6 caja(s): 30 imagenes
+  7 caja(s): 21 imagenes
+  8 caja(s): 5 imagenes
+  9 caja(s): 3 imagenes
+  10 caja(s): 1 imagenes
+  11 caja(s): 2 imagenes
+  13 caja(s): 1 imagenes
+
+----------------------------------------------------------------------
+4. TAMANO DE LAS CAJAS
+----------------------------------------------------------------------
+Todas (lesion_periapical):
+  % de la imagen que ocupa: min 0.0 / mediana 0.1 / media 0.2 / max 4.2
+  lado menor (px):          min 25.0 / mediana 56.0 / media 62.6 / max 281.0
+<name> = 3:
+  % de la imagen que ocupa: min 0.0 / mediana 0.1 / media 0.1 / max 0.4
+  lado menor (px):          min 25.0 / mediana 49.0 / media 50.5 / max 106.0
+<name> = 4:
+  % de la imagen que ocupa: min 0.0 / mediana 0.2 / media 0.2 / max 0.6
+  lado menor (px):          min 30.0 / mediana 70.0 / media 72.0 / max 134.0
+<name> = 5:
+  % de la imagen que ocupa: min 0.1 / mediana 0.4 / media 0.5 / max 4.2
+  lado menor (px):          min 52.0 / mediana 108.0 / media 112.8 / max 281.0
+
+----------------------------------------------------------------------
+5. RESOLUCION DE LAS IMAGENES (leida del JPG real)
+----------------------------------------------------------------------
+  2444 x 1292: 2824 imagenes
+  2473 x 1252: 857 imagenes
+  2636 x 1292: 188 imagenes
+  2316 x 1292: 38 imagenes
+  2624 x 1252: 12 imagenes
+  2440 x 1292: 4 imagenes
+  2356 x 1292: 1 imagenes
+Resoluciones distintas en total: 7
