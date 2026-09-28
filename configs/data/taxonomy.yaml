@@ -1,0 +1,18 @@
+# Clases del dataset maestro: fuente de verdad para el codigo.
+# Referencia conceptual (descripciones, criterios de caja, historial):
+# docs/taxonomy.md.
+#
+# CONGELADA. El id de cada clase es su posicion en el formato YOLO: cambiar el
+# orden o los nombres invalida el dataset maestro y los modelos entrenados, y
+# exige una version nueva de la taxonomia.
+
+version: 0.2.0
+
+names:
+  0: caries
+  1: lesion_periapical
+  2: diente_impactado
+  3: restauracion
+  4: endodoncia
+  5: protesis_fija
+  6: implante

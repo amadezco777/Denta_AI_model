@@ -9,6 +9,10 @@ PASO 0 - Correccion del mapa de clases (revision del 2026-09-27):
       Se traduce con BLOCK_A_REMAP. Evidencia: tamano y brillo de las cajas,
       revision visual y ausencia total del id 13 (ese orden solo tiene 13 clases).
     - Bloque B (imagenes 1-30): otro orden, deducido solo en parte. Se EXCLUYE.
+    - Bloque C (imagenes >= 1392, revision del 2026-09-28): mapa correcto, pero
+      anotacion INCOMPLETA: en el 98 % de los casos trae una sola caja por clase
+      (un ejemplo de cada hallazgo, no todos; frente al 30 % del resto). Los
+      hallazgos sin caja ensenarian al modelo que son fondo. Se EXCLUYE.
   La correccion se aplica ANTES del consenso, porque este compara ids de clase.
   Queda registrada en mapping_log.csv.
 
@@ -20,7 +24,11 @@ traen anotaciones INDEPENDIENTES que solo coinciden en ~55 % de las cajas
   - etiquetas contradictorias: la misma imagen dice "caries" y "no caries".
 
 Que hace (decision del 2026-09-27, "opcion B: consenso"):
-  1. Agrupa las imagenes por contenido (MD5), no por nombre.
+  1. Agrupa las imagenes por contenido, no por nombre: primero por MD5 (archivos
+     identicos) y despues por pixeles (correlacion de miniaturas >=
+     REEXPORT_THRESHOLD, ver src/data/similarity.py). Lo segundo detecta la
+     misma radiografia guardada con otra compresion, que el MD5 no ve
+     (revision del 2026-09-28: 20 pares, casi todos con una copia del bloque C).
   2. Imagen sin copias: se copia tal cual.
   3. Grupo de copias: se conserva UNA imagen, y solo las cajas en las que
      coinciden al menos MIN_VOTES copias (misma clase, IoU > IOU_THRESHOLD,
@@ -47,10 +55,14 @@ import argparse
 import csv
 import hashlib
 import shutil
+import sys
 from collections import defaultdict
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(REPO_ROOT))
+from src.data.similarity import REEXPORT_THRESHOLD, connected_groups, similar_pairs, thumbnail  # noqa: E402
+
 DEFAULT_SRC = REPO_ROOT / "data/raw/muresanu_cluj/muresanu_cluj_dataset"
 DEFAULT_DST = REPO_ROOT / "data/interim/muresanu_cluj"
 
@@ -77,6 +89,7 @@ BLOCK_A = range(101, 200)
 # id en el archivo -> id correcto segun legend.txt; los ids no listados no cambian.
 BLOCK_A_REMAP = {1: 2, 2: 1, 5: 6, 6: 5, 11: 12, 12: 13}
 BLOCK_B = range(1, 31)
+BLOCK_C_START = 1392
 
 
 def block_action(split, img):
@@ -84,7 +97,7 @@ def block_action(split, img):
     if split not in NUMBERED_SPLITS or not img.stem.isdigit():
         return None
     n = int(img.stem)
-    if n in BLOCK_B:
+    if n in BLOCK_B or n >= BLOCK_C_START:
         return "excluir"
     if n in BLOCK_A:
         return "remapear"
@@ -187,6 +200,17 @@ def main():
             if img.suffix.lower() in IMAGE_SUFFIXES:
                 groups[md5(img)].append((split, img))
 
+    # 1b. Unir los grupos MD5 que son la misma radiografia reexportada.
+    keys = list(groups)
+    pairs = similar_pairs([thumbnail(groups[k][0][1]) for k in keys], REEXPORT_THRESHOLD)
+    pixel_merged = set()
+    for comp in connected_groups(len(keys), pairs):
+        if len(comp) > 1:
+            head = keys[comp[0]]
+            for k in comp[1:]:
+                groups[head].extend(groups.pop(keys[k]))
+            pixel_merged.add(head)
+
     if not args.dry_run:
         if args.dst.exists() and any(args.dst.iterdir()):
             raise SystemExit(f"{args.dst} no esta vacia: borrala a mano antes de regenerar.")
@@ -237,6 +261,7 @@ def main():
         if len(members) > 1:
             log_rows.append({
                 "md5": digest,
+                "criterio": "pixeles" if digest in pixel_merged else "md5",
                 "particion_final": "EXCLUIDA" if excluded else target_split,
                 "imagen_final": keep_img.name,
                 "copias": " | ".join(f"{s}/{p.name}" for s, p in members),
@@ -264,9 +289,10 @@ def main():
 
     n_files = sum(len(m) for m in groups.values())
     print(f"Archivos de imagen leidos:          {n_files}")
-    print(f"Radiografias distintas (MD5):       {len(groups)}")
+    print(f"Radiografias distintas (MD5+pix.):  {len(groups)}")
+    print(f"  grupos unidos por pixeles:        {len(pixel_merged)}")
     print(f"Paso 0 - archivos remapeados (A):   {sum(r['accion'] == 'remapear' for r in mapping_rows)}")
-    print(f"Paso 0 - archivos excluidos (B):    {sum(r['accion'] == 'excluir' for r in mapping_rows)}")
+    print(f"Paso 0 - archivos excluidos (B, C): {sum(r['accion'] == 'excluir' for r in mapping_rows)}")
     print(f"Grupos con copias fusionados:       {len(log_rows)}")
     print(f"  de ellos, entre particiones:      {moved}")
     print(f"Cajas de tamano 0 descartadas:      {dropped_zero}")

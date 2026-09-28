@@ -170,3 +170,65 @@ def test_no_sobrescribe_una_salida_existente(tmp_path):
     result = subprocess.run([sys.executable, str(SCRIPT), "--src", str(src), "--dst", str(dst)])
     assert result.returncode != 0
     assert (dst / "algo.txt").read_text() == "previo"
+
+
+# --- revision del 2026-09-28: bloque C y copias reexportadas ---------------------
+
+def _textured(path, seed, quality=95):
+    """Imagen con textura suave (las de un solo color no se parecen a nada)."""
+    import numpy as np
+    rng = np.random.default_rng(seed)
+    small = rng.integers(0, 255, (12, 24), dtype=np.uint8)
+    Image.fromarray(small).resize((240, 120), Image.BILINEAR).save(path, quality=quality)
+
+
+def test_bloque_c_se_excluye(tmp_path):
+    src, dst = tmp_path / "src", tmp_path / "dst"
+    _make_dataset(src)
+    Image.new("L", (100, 50), 110).save(src / "train/images/1392.jpg")
+    Image.new("L", (100, 50), 120).save(src / "valid/images/1470.jpg")
+    for rel in ("train/labels/1392.txt", "valid/labels/1470.txt"):
+        (src / rel).write_text("4 0.5 0.5 0.1 0.1\n")
+    subprocess.run([sys.executable, str(SCRIPT), "--src", str(src), "--dst", str(dst)], check=True)
+
+    assert not (dst / "train/images/1392.jpg").exists()
+    assert not (dst / "valid/images/1470.jpg").exists()
+    # 1391 queda fuera del bloque: la frontera es 1392.
+    assert dedup.block_action("train", Path("1391.jpg")) is None
+    # test y externa tienen numeracion propia: el bloque C no les aplica.
+    assert dedup.block_action("externa", Path("1500.jpg")) is None
+
+
+def test_reexportada_se_une_por_pixeles_y_pasa_por_consenso(tmp_path):
+    # Misma radiografia con distinta compresion: el MD5 difiere, los pixeles no.
+    src, dst = tmp_path / "src", tmp_path / "dst"
+    _make_dataset(src)
+    _textured(src / "train/images/622.jpg", seed=1, quality=95)
+    _textured(src / "train/images/842.jpg", seed=1, quality=60)
+    assert dedup.md5(src / "train/images/622.jpg") != dedup.md5(src / "train/images/842.jpg")
+    (src / "train/labels/622.txt").write_text("4 0.5 0.5 0.1 0.1\n2 0.2 0.2 0.1 0.1\n")
+    (src / "train/labels/842.txt").write_text("4 0.5 0.5 0.1 0.1\n")
+    _textured(src / "train/images/700.jpg", seed=2)  # otra radiografia, no se une
+    (src / "train/labels/700.txt").write_text("3 0.5 0.5 0.1 0.1\n")
+    subprocess.run([sys.executable, str(SCRIPT), "--src", str(src), "--dst", str(dst)], check=True)
+
+    assert (dst / "train/images/622.jpg").exists() and not (dst / "train/images/842.jpg").exists()
+    assert (dst / "train/labels/622.txt").read_text().splitlines() == ["4 0.500000 0.500000 0.100000 0.100000"]
+    assert (dst / "train/images/700.jpg").exists()
+    log = (dst / "dedup_log.csv").read_text(encoding="utf-8")
+    assert "pixeles" in log
+
+
+def test_reexportada_del_bloque_c_se_descarta_y_la_completa_sobrevive(tmp_path):
+    # Caso real (1063 con 26 cajas / 1424 con 4): la copia pobre es del bloque C.
+    src, dst = tmp_path / "src", tmp_path / "dst"
+    _make_dataset(src)
+    _textured(src / "train/images/1063.jpg", seed=3, quality=95)
+    _textured(src / "train/images/1424.jpg", seed=3, quality=70)
+    (src / "train/labels/1063.txt").write_text("4 0.5 0.5 0.1 0.1\n2 0.2 0.2 0.1 0.1\n3 0.8 0.8 0.1 0.1\n")
+    (src / "train/labels/1424.txt").write_text("4 0.5 0.5 0.1 0.1\n")
+    subprocess.run([sys.executable, str(SCRIPT), "--src", str(src), "--dst", str(dst)], check=True)
+
+    # Sin consenso con la copia excluida: 1063 conserva sus tres cajas.
+    assert len((dst / "train/labels/1063.txt").read_text().splitlines()) == 3
+    assert not (dst / "train/images/1424.jpg").exists()
