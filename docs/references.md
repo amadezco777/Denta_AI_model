@@ -38,6 +38,13 @@ Los datasets en sí (licencia, estado, observaciones técnicas) se registran en 
 - **Cita:** Chen et al. CVPR 2025. Repositorio: https://github.com/Binz-Chan/CVPR2025_OralXrays-9
 - **Qué justifica:** es el único candidato de gran escala con clases de tratamiento. Está registrado porque condiciona el alcance de 3 vs 6 clases. Sin licencia explícita; correo enviado a los autores el 2026-09-26, sin respuesta.
 
+### [R5] Papers que usan el Annotated OPG Dataset (Khurshid et al.) (pendiente de revisar a fondo)
+- **Citas:**
+  - *Multi-Regional deep learning models for identifying dental restorations and prosthesis in panoramic radiographs*. BMC Oral Health, 2025. DOI: 10.1186/s12903-025-07138-0. https://pmc.ncbi.nlm.nih.gov/articles/PMC12587687/
+  - Khurshid Z, et al. *OralHybridNet: A Deep Learning Framework for Multi-Label Classification of Dental Restorations and Prostheses in Panoramic Radiographs*. Inquiry, 2026. DOI: 10.1177/00469580261439986. https://pmc.ncbi.nlm.nih.gov/articles/PMC13080161/
+- **Leído solo mediante un resumen automático de PMC** (2026-09-27). Verificar las cifras en el texto completo antes de citarlas.
+- **Qué justifica:** el origen multinacional del dataset [D4] (Pakistán, Tailandia y Tufts, según BMC) y el protocolo de anotación que declaran (3 especialistas, κ = 0,89). **Contraste con nuestra verificación:** el "2.235 OPGs" de BMC coincide con los archivos de train *aumentados*, no con radiografías distintas (~447), y val/test están contenidos en train (ver `dataset_registry.md`). Sirve como ejemplo, en el informe, de por qué hay que verificar los datasets en lugar de fiarse de lo publicado.
+
 ## Fuentes de datos sin paper propio
 
 ### [D1] DENTEX, ver [R1].
@@ -52,8 +59,15 @@ Los datasets en sí (licencia, estado, observaciones técnicas) se registran en 
 - **Paper asociado:** [R2].
 - **Qué justifica:** posible fuente de las clases de tratamiento (restauración, endodoncia, corona) sin depender de OralXrays-9. Detalle y riesgos en `dataset_registry.md`.
 
+### [D4] Khurshid et al.: Annotated OPG Dataset (tratamientos)
+- **Cita:** Khurshid Z, Waqas M, Faridoon F, Porntaveetus T, Trachoo V. *Annotated OPG Dataset for Dental Fillings, Prostheses (Crowns & Bridges), Endodontic Treatments, Endodontic Posts, and Dental Implants*. Mendeley Data, v1, 2025-04-07. DOI: 10.17632/mdvs6mjgf2.1. CC BY 4.0.
+- **URL:** https://data.mendeley.com/datasets/mdvs6mjgf2/1
+- **Papers que lo usan:** [R5].
+- **Qué justifica:** candidato a **prueba externa** de las clases de tratamiento (otros países y equipos que Muresanu). No se usa para entrenar. Detalle y problemas en `dataset_registry.md`.
+
 ## Historial
 
 | fecha | cambio |
 |---|---|
 | 2026-09-27 | Creación. R1 (verificado en arXiv), R2 y D3 (verificados en PMC y Zenodo), R3 (pendiente de revisar), R4, D1, D2. |
+| 2026-09-28 | R5 (pendiente de revisar a fondo) y D4 (verificado en Mendeley y en los archivos descargados). |
