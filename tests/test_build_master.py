@@ -87,6 +87,19 @@ def test_reparto_respeta_fraccion_y_clase_escasa():
     assert 2 <= rare_val <= 4  # ~15 % de 20
 
 
+def test_reparto_no_acapara_las_imagenes_cargadas():
+    # Caso del dataset real: unas pocas imagenes con muchas cajas y la clase escasa.
+    # El reparto voraz anterior las mandaba a val y val se llevaba ~20-28 % de las cajas.
+    groups = [(1, Counter({0: 1})) for _ in range(180)]
+    groups += [(1, Counter({0: 10, 6: 1})) for _ in range(20)]
+    val = bm.stratified_group_split(groups, n_classes=7, val_fraction=0.15, seed=1)
+    n_val = sum(groups[i][0] for i in val)
+    assert n_val == 30  # 15 % de 200
+    for c, total in ((0, 380), (6, 20)):
+        frac = sum(groups[i][1][c] for i in val) / total
+        assert abs(frac - 0.15) <= 0.03, (c, frac)
+
+
 def test_reparto_es_reproducible():
     groups = [(1, Counter({i % 7: 1})) for i in range(100)]
     assert bm.stratified_group_split(groups, 7, seed=5) == bm.stratified_group_split(groups, 7, seed=5)

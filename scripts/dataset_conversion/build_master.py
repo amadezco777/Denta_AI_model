@@ -15,9 +15,10 @@ Reglas (decisiones del usuario del 2026-09-28, ver docs/taxonomy.md):
      src/data/similarity.py) forman un grupo que va entero a train o a val.
      Si un grupo enlaza train/valid con test o externa, el script se detiene:
      seria una fuga hacia la evaluacion.
-  3. Estratificacion. Los grupos se asignan de forma voraz, empezando por los
-     que contienen las clases mas escasas, para que val tenga una proporcion
-     parecida de cada clase y no solo de imagenes.
+  3. Estratificacion. Se prueban N_TRIALS repartos aleatorios de grupos y se
+     elige el que mas se acerca a VAL_FRACTION a la vez en imagenes y en cajas
+     de cada clase, para que val no se lleve una parte desproporcionada de
+     ninguna clase.
   4. Clases. Se aplica configs/data/mapping_muresanu_cluj.yaml: cada id de
      origen va a su clase (configs/data/taxonomy.yaml) o se descarta
      (target: null). Un id que no este en el mapeo detiene el script.
@@ -63,6 +64,7 @@ IMAGE_SUFFIXES = {".jpg", ".jpeg", ".png"}
 
 VAL_FRACTION = 0.15
 SEED = 42
+N_TRIALS = 2000  # repartos aleatorios que se prueban (ver stratified_group_split)
 # Fraccion del ancho (izquierda, derecha) o del alto (abajo) que se tapa.
 MASK = {"left": 0.03, "right": 0.03, "bottom": 0.04}
 JPEG_QUALITY = 95
@@ -121,40 +123,45 @@ def boxes_under_mask(boxes, mask=MASK):
             or b[2] + b[4] / 2 > 1 - mask["bottom"]]
 
 
-def stratified_group_split(groups, n_classes, val_fraction=VAL_FRACTION, seed=SEED):
+def stratified_group_split(groups, n_classes, val_fraction=VAL_FRACTION, seed=SEED, n_trials=N_TRIALS):
     """Reparte grupos entre train y val manteniendo la proporcion de cada clase.
 
     groups: lista de (n_imagenes, Counter{clase: cajas}).
     Devuelve un set con los indices de los grupos que van a val.
 
-    Voraz: se recorren los grupos empezando por los que mas pesan en las clases
-    escasas, y cada uno entra en val solo si acerca val a su objetivo (la misma
-    fraccion de cada clase y de imagenes). Un grupo nunca se parte.
+    Busqueda aleatoria: se sortean n_trials repartos (grupos barajados, se llenan
+    en val hasta alcanzar val_fraction de las imagenes) y se queda el que tiene
+    menor desviacion maxima respecto a val_fraction, contando las imagenes y cada
+    clase. Un grupo nunca se parte.
+
+    Sustituye al reparto voraz del 2026-09-28, que empezaba por los grupos con
+    mas cajas de clases escasas: acertaba el 15 % de imagenes pero se llevaba a
+    val el 18-20 % de las cajas (28 % de los implantes), quitandoselas a train.
     """
     total = Counter()
     for _, counts in groups:
         total.update(counts)
     n_images = sum(n for n, _ in groups)
     classes = [c for c in range(n_classes) if total[c] > 0]
-    target = {c: val_fraction * total[c] for c in classes}
     target_images = val_fraction * n_images
 
-    def cost(val_counts, val_images):
-        c = sum(((val_counts[k] - target[k]) / total[k]) ** 2 for k in classes)
-        return c + ((val_images - target_images) / n_images) ** 2
-
+    rng = random.Random(seed)
     order = list(range(len(groups)))
-    random.Random(seed).shuffle(order)  # desempate reproducible
-    order.sort(key=lambda i: -sum(groups[i][1][c] / total[c] for c in classes))
-
-    val, val_counts, val_images = set(), Counter(), 0
-    for i in order:
-        n, counts = groups[i]
-        trial = val_counts + counts
-        if cost(trial, val_images + n) < cost(val_counts, val_images):
+    best, best_cost = set(), float("inf")
+    for _ in range(n_trials):
+        rng.shuffle(order)
+        val, val_counts, val_images = set(), Counter(), 0
+        for i in order:
+            if val_images >= target_images:
+                break
             val.add(i)
-            val_counts, val_images = trial, val_images + n
-    return val
+            val_counts.update(groups[i][1])
+            val_images += groups[i][0]
+        cost = max([abs(val_images / n_images - val_fraction)]
+                   + [abs(val_counts[c] / total[c] - val_fraction) for c in classes])
+        if cost < best_cost:
+            best, best_cost = val, cost
+    return best
 
 
 def collect(src):
