@@ -24,13 +24,10 @@ python-dotenv>=1.0
 # --- Calidad de código y pruebas ---
 pytest>=8.3
 
-# ---------------------------------------------------------------------------
-# Pendiente: añadir cuando se llegue a la fase de entrenamiento.
-#
-# PyTorch se instala con el índice que corresponda a la GPU/CUDA de la máquina;
-# ver https://pytorch.org/get-started/locally/ antes de fijar una versión aquí.
-#
-#   torch
-#   torchvision
-#   ultralytics
-# ---------------------------------------------------------------------------
+# --- Entrenamiento ---
+# PyTorch NO se instala desde aquí: su wheel depende de la GPU/CUDA de la
+# máquina. En la máquina del proyecto (RTX 4050, Python 3.14) se usó:
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu126
+# (requiere un driver de NVIDIA reciente; con el 528.97 falla con
+# cudaErrorDevicesUnavailable). Versiones probadas: torch 2.14.0, torchvision 0.29.0.
+ultralytics>=8.4
