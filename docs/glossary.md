@@ -119,6 +119,9 @@ Una pasada completa por todas las imágenes de train. Con 979 imágenes y un bat
 **Batch (lote)**
 Número de imágenes que el modelo procesa juntas antes de corregir sus pesos. Un batch más grande da correcciones más estables y épocas más rápidas, pero ocupa más VRAM. Si no cabe, aparece el error `CUDA out of memory`.
 
+**Workers (procesos de carga de datos)**
+Procesos auxiliares que corren en la CPU y preparan los lotes para la GPU: leen cada imagen del disco, la descomprimen (JPG → píxeles), la reducen a `imgsz`, le aplican el aumento de datos y arman el lote. Trabajan en paralelo con la GPU: mientras ella procesa un lote, los workers ya preparan los siguientes. Con más workers la GPU espera menos, pero cada uno es un proceso aparte que consume RAM con sus imágenes en preparación. En este proyecto la CPU es el cuello de botella, porque las panorámicas son grandes. Con `workers: 4`, la RAM se agotó durante un entrenamiento (2026-09-30).
+
 **Resolución de entrada (`imgsz`)**
 Tamaño al que se reduce cada imagen antes de entrar al modelo. Con `imgsz: 640`, el lado largo de la panorámica queda en 640 píxeles. Si la radiografía original mide 2.800 px de ancho, todo se reduce unas 4,4 veces: una caries de 40 px queda en unos 9 px, y a ese tamaño es difícil de ver. Subir la resolución ayuda con los hallazgos pequeños, pero la memoria crece con el cuadrado: 960 px usa unas 2,25 veces la memoria de 640 px.
 
