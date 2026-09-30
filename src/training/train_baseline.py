@@ -22,7 +22,7 @@ Uso (desde la raiz del repositorio):
     python -m src.training.train_baseline --config configs/training/baseline.yaml
     # Prueba de humo: cambiar valores sin tocar el yaml
     python -m src.training.train_baseline --config configs/training/baseline.yaml \\
-        --name humo_n640 --set epochs=1 imgsz=640
+        --name humo_s960 --model models/pretrained/yolo11s.pt --set epochs=1 imgsz=960
 """
 
 import argparse
@@ -176,6 +176,7 @@ def main():
                         help="cambia parametros de 'train:' sin editar el yaml")
     parser.add_argument("--seeds", type=int, nargs="+", help="sustituye 'seeds' del yaml")
     parser.add_argument("--name", help="sustituye 'name' del yaml")
+    parser.add_argument("--model", help="sustituye 'model' del yaml (p. ej. models/pretrained/yolo11s.pt)")
     args = parser.parse_args()
 
     cfg = load_config(args.config, args.set)
@@ -183,6 +184,8 @@ def main():
         cfg["seeds"] = args.seeds
     if args.name:
         cfg["name"] = args.name
+    if args.model:
+        cfg["model"] = args.model
     try:
         train(cfg)
     except DatasetMismatch as e:
