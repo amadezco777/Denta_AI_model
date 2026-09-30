@@ -29,6 +29,14 @@ Reglas (decisiones del usuario del 2026-09-28, ver docs/taxonomy.md):
      rectangulo negro no se convierta en otra pista. Ninguna caja de las 7
      clases toca esas franjas (medido el 2026-09-28).
 
+Procedencia. dataset.yaml lleva en meta.provenance el commit de git del codigo
+(y si habia cambios sin commitear), la huella SHA-256 de la entrada
+(data/interim, mapeo y taxonomia), la huella de la salida (imagenes, etiquetas
+y manifest.csv) y las versiones de Python/OpenCV/NumPy/PyYAML. Para comprobar
+que un dataset en disco es el registrado:
+    python -m src.data.provenance data/processed/master/dataset.yaml
+Ver src/data/provenance.py.
+
 No modifica data/interim/. Los nombres de salida llevan el origen:
 muresanu_<particion_original>_<nombre>.
 
@@ -39,6 +47,7 @@ Uso (desde la raiz del repositorio):
 
 import argparse
 import csv
+import hashlib
 import random
 import sys
 from collections import Counter
@@ -50,6 +59,7 @@ import yaml
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO_ROOT))
+from src.data.provenance import DATASET_EXCLUDE, environment, fingerprint, git_state  # noqa: E402
 from src.data.similarity import SAME_PATIENT_THRESHOLD, connected_groups, similar_pairs, thumbnail  # noqa: E402
 
 DEFAULT_SRC = REPO_ROOT / "data/interim/muresanu_cluj"
@@ -164,6 +174,11 @@ def stratified_group_split(groups, n_classes, val_fraction=VAL_FRACTION, seed=SE
     return best
 
 
+def fingerprint_file(path):
+    """SHA-256 (hex) de un solo archivo."""
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
 def collect(src):
     """Lista de dicts {split, image, label} de data/interim."""
     items = []
@@ -185,6 +200,11 @@ def main():
     parser.add_argument("--seed", type=int, default=SEED)
     parser.add_argument("--dry-run", action="store_true", help="solo informa, no escribe nada")
     args = parser.parse_args()
+
+    git = git_state(REPO_ROOT)
+    if git is None or git["dirty"]:
+        print("AVISO: hay cambios sin commitear (o no hay git). El dataset quedara marcado como\n"
+              "       no reproducible desde un commit (meta.provenance.code.dirty).\n")
 
     mapping, names, version = load_mapping(args.mapping, args.taxonomy)
     items = collect(args.src)
@@ -270,9 +290,19 @@ def main():
         writer.writeheader()
         writer.writerows(rows)
 
+    provenance = {
+        "code": git,
+        "input_fingerprint": {"interim": fingerprint(args.src),
+                              "mapping": fingerprint_file(args.mapping),
+                              "taxonomy": fingerprint_file(args.taxonomy)},
+        # Se calcula antes de escribir los yaml, que quedan fuera (DATASET_EXCLUDE).
+        "output_fingerprint": fingerprint(args.dst, DATASET_EXCLUDE),
+        "environment": environment(),
+    }
     meta = {"taxonomy_version": version, "built_at": date.today().isoformat(),
             "source_datasets": ["muresanu_cluj"], "val_fraction": args.val_fraction, "seed": args.seed,
-            "mask": MASK, "split_strategy": "test y externa originales; train/val por grupo de paciente, estratificado"}
+            "mask": MASK, "split_strategy": "test y externa originales; train/val por grupo de paciente, estratificado",
+            "provenance": provenance}
     # Ultralytics resuelve un "path" relativo contra su propia carpeta de datasets,
     # no contra el yaml: se escribe la ruta absoluta.
     base = {"path": str(args.dst.resolve()), "names": names, "meta": meta}
