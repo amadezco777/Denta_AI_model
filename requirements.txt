@@ -1,4 +1,5 @@
-# Dependencias del proyecto.
+# Dependencias del proyecto (rangos). Las versiones EXACTAS instaladas están en
+# requirements.lock: usar ese archivo para reproducir un resultado.
 # Se añaden conforme se necesitan, no por adelantado.
 #
 # Instalación:
