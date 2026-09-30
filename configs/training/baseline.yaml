@@ -1,0 +1,39 @@
+# Configuracion del baseline. Uso:
+#     python -m src.training.train_baseline --config configs/training/baseline.yaml
+#
+# PROVISIONAL: modelo, imgsz, batch y epocas se deciden despues de la prueba
+# de humo (VRAM y tiempo por epoca medidos en la RTX 4050 de 6 GB).
+#
+# El baseline no busca el mejor resultado, busca una referencia reproducible
+# contra la que comparar. Rutas relativas a la raiz del repositorio.
+
+model: models/pretrained/yolo11n.pt   # pesos preentrenados en COCO
+data: data/processed/master/dataset.yaml
+seeds: [42]                            # una carpeta de salida por semilla
+project: runs/baseline
+name: yolo11n_640
+
+# Todo lo que va aqui se pasa tal cual a model.train() de Ultralytics. Lo que
+# no aparece toma el valor por defecto de Ultralytics (queda registrado en
+# args.yaml de cada corrida). Un nombre que Ultralytics no conoce detiene el
+# script: evita que una errata ("epoch") se ignore en silencio.
+train:
+  epochs: 50
+  batch: 16
+  imgsz: 640
+  device: 0            # GPU 0; "cpu" para entrenar sin GPU
+  workers: 4
+  optimizer: auto
+  lr0: 0.01
+  patience: 20
+
+  # Aumento de datos: conservador. El volteo horizontal es plausible (arcadas
+  # simetricas y ninguna de las 7 clases depende del lado); el vertical no
+  # tiene sentido clinico. Sin cambios de color: la radiografia es en grises.
+  fliplr: 0.5
+  flipud: 0.0
+  degrees: 5.0
+  scale: 0.2
+  hsv_h: 0.0
+  hsv_s: 0.0
+  hsv_v: 0.2
