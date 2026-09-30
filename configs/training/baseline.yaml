@@ -1,8 +1,10 @@
 # Configuracion del baseline. Uso:
 #     python -m src.training.train_baseline --config configs/training/baseline.yaml
 #
-# PROVISIONAL: modelo, imgsz, batch y epocas se deciden despues de la prueba
-# de humo (VRAM y tiempo por epoca medidos en la RTX 4050 de 6 GB).
+# Prueba de humo (2026-09-30, RTX 4050 de 6 GB, 1 epoca): candidatos
+# yolo11n a 960 y yolo11s a 640 (s a 960 no cabe). Se comparan ambos y el
+# mejor queda como baseline. Sin AMP: en float16 yolo11s producia cajas
+# infinitas y cls_loss nan en la validacion, que decide best.pt y la parada.
 #
 # El baseline no busca el mejor resultado, busca una referencia reproducible
 # contra la que comparar. Rutas relativas a la raiz del repositorio.
@@ -19,8 +21,10 @@ name: yolo11n_640
 # script: evita que una errata ("epoch") se ignore en silencio.
 train:
   epochs: 50
-  batch: 16
-  imgsz: 640
+  batch: 8            # sin AMP, 16 no cabe en 6 GB (n960 pidio 10,8 GB). Ultralytics
+                       # acumula gradientes hasta nbs=64, asi que el paso efectivo no cambia
+  amp: false           # float32 en todo; mismo tiempo por epoca (el cuello es la CPU)
+  imgsz: 640          # 960 para yolo11n (--set imgsz=960)
   device: 0            # GPU 0; "cpu" para entrenar sin GPU
   workers: 4
   optimizer: auto
