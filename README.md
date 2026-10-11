@@ -66,6 +66,7 @@ dental-xray-ai/
 ├── docs/
 │   ├── dataset_registry.md    # Registro de datasets evaluados
 │   ├── taxonomy.md            # Definición de clases
+│   ├── models.md              # Registro de modelos congelados (v1, v2…)
 │   └── glossary.md            # Glosario de términos
 │
 ├── models/                    # NO versionado
