@@ -1,165 +1,181 @@
 # Dental X-Ray AI
 
-Modelo de visión por computadora para la detección de hallazgos dentales en radiografías panorámicas.
+Detección de hallazgos dentales en radiografías panorámicas con YOLO: siete categorías, desde caries hasta implantes, cada una localizada con su caja y su puntuación.
 
-> **Estado:** inicialización del repositorio. Todavía no hay datasets descargados, ni modelo entrenado, ni aplicación.
+Proyecto integrador de la **Maestría en Inteligencia Artificial de la Universidad Espíritu Santo (UEES)**, asignatura «Proyecto Integrador», con la tutora Gladys Villegas. Entrega: 28 de octubre de 2026.
+
+> **Alcance:** prototipo académico de investigación y docencia. **No** es un dispositivo médico, no da diagnósticos y no sustituye el criterio del odontólogo. Que no haya cajas en una imagen **no** descarta patología.
 
 ---
 
-## 1. Objetivo del proyecto
+## 1. En una mirada
 
-Desarrollar un modelo de detección de objetos capaz de analizar una radiografía dental panorámica y localizar, con su correspondiente caja delimitadora (*bounding box*), múltiples categorías de hallazgos dentales de forma simultánea.
-
-El resultado esperado al final del proyecto es un modelo entrenado y evaluado, reproducible a partir de este repositorio, junto con la documentación completa del proceso de construcción del dataset.
-
-## 2. Problema que intenta resolver
-
-La interpretación de radiografías panorámicas es una tarea manual, repetitiva y dependiente de la experiencia del profesional. Los hallazgos pequeños o de bajo contraste (caries interproximales, lesiones periapicales incipientes) son fáciles de pasar por alto, y la concordancia entre distintos observadores es limitada.
-
-Un modelo de detección automática puede funcionar como **apoyo al diagnóstico**: señalar regiones sospechosas para que el profesional las revise, reducir omisiones y homogeneizar el criterio de revisión.
-
-> **Alcance clínico:** este proyecto es académico. El modelo resultante es una herramienta de asistencia y **no** constituye un diagnóstico médico ni sustituye el criterio de un profesional de la salud.
-
-## 3. Clases inicialmente consideradas
-
-| Clase | Descripción breve |
+| | |
 |---|---|
-| `caries` | Lesión de tejido dental duro por proceso cariogénico. |
-| `lesion_periapical` | Radiolucidez asociada al ápice radicular. |
-| `diente_impactado` | Pieza que no erupciona a su posición normal. |
-| `restauracion` | Material restaurador (amalgama, resina, incrustación). |
-| `endodoncia` | Tratamiento de conducto / obturación radicular. |
-| `corona` | Prótesis fija de recubrimiento total. |
+| **Problema** | Leer una panorámica es manual y depende de la experiencia: las caries pequeñas y las lesiones periapicales incipientes se pasan por alto con facilidad. |
+| **Solución** | Un detector que señala regiones sospechosas para que el profesional las revise. |
+| **Datos** | Dataset público de Mureșanu et al. (2025), panorámicas de adultos anotadas por especialistas. |
+| **Modelo en producción** | **v1**: YOLO11s a 640 px, con mAP50 de 0,634 en validación. Lo sirve la app clínica desplegada. |
+| **Estudio de investigación** | **v2 de investigación**: YOLO11n a 960 px, con mAP50 de 0,722 en test interno y 0,571 en externa. |
+| **Producto** | App web clínica con login, pacientes, revisión de hallazgos, reporte firmado verificable por QR y envío por correo. |
 
-Estas seis clases son **provisionales**. La taxonomía definitiva se fijará tras el análisis de los datasets públicos disponibles; ver [`docs/taxonomy.md`](docs/taxonomy.md).
+## 2. Equipo
 
-## 4. Estrategia de integración de múltiples datasets
-
-No existe un único dataset público que cubra todas las categorías de interés con calidad suficiente. La estrategia es **agregar varios datasets especializados** en un dataset maestro multicategoría:
-
-1. **Recopilación.** Identificar datasets públicos de radiografía panorámica y registrarlos en [`docs/dataset_registry.md`](docs/dataset_registry.md) con su fuente, licencia y formato de anotación.
-2. **Análisis individual (EDA).** Para cada dataset por separado: número de imágenes, resolución, distribución de clases, tamaño de las cajas, calidad y consistencia de las anotaciones. Un notebook por dataset.
-3. **Verificación de licencias.** Solo se integran datasets cuya licencia permita el uso previsto. El estado de cada uno queda en el registro.
-4. **Limpieza.** Descarte de imágenes corruptas, duplicadas o sin anotación utilizable; detección de solapamiento entre datasets.
-5. **Mapeo de etiquetas.** Cada etiqueta original se mapea a una clase de la taxonomía propia, o se marca como descartada. El mapeo vive en `configs/data/` y es explícito y versionado: es la pieza crítica del proyecto.
-6. **Normalización de anotaciones.** Conversión de todos los formatos (COCO, Pascal VOC, máscaras, CSV) a un formato único de trabajo, y de ahí al formato YOLO. Normalización de nombres de archivo y de coordenadas.
-7. **Dataset maestro.** Unión de las fuentes normalizadas, con trazabilidad del dataset de origen de cada imagen.
-8. **Particionado.** División train / validation / test estratificada por clase, evitando fugas entre particiones (imágenes del mismo paciente o duplicados no pueden caer en particiones distintas).
-
-Cada paso es un script reproducible bajo `scripts/`, no una edición manual.
-
-## 5. Estructura del repositorio
-
-```
-dental-xray-ai/
-│
-├── configs/                   # Configuración versionada (YAML)
-│   ├── data/                  # Mapeos de etiquetas, definición del dataset maestro
-│   └── training/              # Hiperparámetros de entrenamiento
-│
-├── data/                      # NO versionado (ver .gitignore)
-│   ├── raw/                   # Datasets tal como se descargaron, intactos
-│   ├── external/              # Fuentes auxiliares de terceros
-│   ├── interim/               # Intermedios: limpieza, mapeo, normalización
-│   └── processed/             # Dataset maestro listo para entrenar
-│
-├── docs/
-│   ├── dataset_registry.md    # Registro de datasets evaluados
-│   ├── taxonomy.md            # Definición de clases
-│   ├── models.md              # Registro de modelos congelados (v1, v2…)
-│   └── glossary.md            # Glosario de términos
-│
-├── models/                    # NO versionado
-│   ├── checkpoints/           # Pesos entrenados (.pt)
-│   └── exports/               # Modelos exportados (.onnx, etc.)
-│
-├── notebooks/                 # EDA y exploración (un notebook por dataset)
-│
-├── reports/                   # Resultados de evaluación
-│   └── figures/               # Gráficas generadas
-│
-├── runs/                      # Salidas de entrenamiento (NO versionado)
-│
-├── scripts/                   # Puntos de entrada ejecutables
-│   ├── dataset_analysis/      # EDA automatizado, estadísticas
-│   ├── dataset_conversion/    # COCO/VOC/CSV -> formato interno -> YOLO
-│   └── dataset_validation/    # Verificación de integridad y consistencia
-│
-├── src/                       # Código reutilizable (importable)
-│   ├── data/                  # Carga, mapeo, particionado
-│   ├── training/              # Lógica de entrenamiento
-│   ├── evaluation/            # Métricas y reportes
-│   ├── inference/             # Predicción sobre imágenes nuevas
-│   └── utils/                 # Utilidades transversales
-│
-├── tests/                     # Pruebas (pytest)
-│
-├── .env.example
-├── .gitignore
-├── LICENSE
-├── README.md
-└── requirements.txt
-```
-
-**Criterio `src/` vs `scripts/`:** en `src/` va la lógica, importable y testeable; en `scripts/` van los ejecutables de línea de comandos que orquestan esa lógica. Los notebooks exploran, pero nada que deba reproducirse vive únicamente en un notebook.
-
-## 6. Flujo previsto
-
-```
-Datasets públicos
-        ↓
-Análisis individual
-        ↓
-Limpieza
-        ↓
-Mapeo de etiquetas
-        ↓
-Normalización de anotaciones
-        ↓
-Dataset maestro
-        ↓
-Train / Validation / Test
-        ↓
-Entrenamiento
-        ↓
-Evaluación
-        ↓
-Modelo entrenado
-        ↓
-Inferencia
-```
-
-## 7. Tecnologías inicialmente consideradas
-
-| Tecnología | Uso previsto |
+| Integrante | Aporte |
 |---|---|
-| Python | Lenguaje base del proyecto. |
-| PyTorch | Framework de deep learning subyacente. |
-| Ultralytics YOLO | Arquitectura de detección para el baseline. |
-| OpenCV | Lectura y preprocesamiento de imágenes. |
-| Pandas | Manejo tabular de anotaciones y estadísticas. |
-| NumPy | Operaciones numéricas. |
-| Jupyter | Notebooks de análisis exploratorio. |
+| **Anthony Madezco** | Parte técnica: selección y depuración de datos, taxonomía, pipeline y modelo v1, app clínica (API y front) y etiquetador. |
+| **Cristhian Pazmiño** | Documento final (tesis APA 7) y estudio de investigación v2: cohorte, búsqueda de hiperparámetros y evaluación completa. |
 
-Las dependencias se irán añadiendo a `requirements.txt` conforme se necesiten; nada se instala por adelantado.
+## 3. Ecosistema del proyecto
 
-## 8. Puesta en marcha
+El proyecto se reparte en tres repositorios privados:
+
+| Repositorio | Qué es | Estado |
+|---|---|---|
+| **Denta_AI_model** (este) | Datos, entrenamiento, evaluación y registro de modelos | v1 congelado; v2 de investigación integrado |
+| [dental-xray-app](https://github.com/amadezco777/dental-xray-app) | App clínica: API FastAPI (inferencia) + Next.js + Supabase | **Desplegada**: front en Vercel y API en VPS. Sirve el v1 |
+| [dental-labeler](https://github.com/amadezco777/dental-labeler) | Etiquetador web para que los odontólogos corrijan cajas y generen datos nuevos | MVP terminado; pendiente de despliegue |
+
+```
+ Muresanu (Zenodo)  ──►  Denta_AI_model  ──►  pesos + ficha  ──►  dental-xray-app  ──►  odontólogo
+                              ▲                                                            │
+                              └───────────  .zip YOLO  ◄──  dental-labeler  ◄──────────────┘
+                                         (datos para futuras versiones)
+```
+
+## 4. Taxonomía
+
+Hay siete clases, congeladas en la versión `0.2.0` ([`configs/data/taxonomy.yaml`](configs/data/taxonomy.yaml) y [`docs/taxonomy.md`](docs/taxonomy.md)):
+
+| id | Clase | Qué encierra la caja |
+|---|---|---|
+| 0 | `caries` | La lesión cariosa |
+| 1 | `lesion_periapical` | La región apical afectada |
+| 2 | `diente_impactado` | La pieza completa |
+| 3 | `restauracion` | El material restaurador |
+| 4 | `endodoncia` | El tratamiento de conducto |
+| 5 | `protesis_fija` | La corona o puente |
+| 6 | `implante` | El implante |
+
+El dataset principal es Muresanu. DENTEX, Mendeley y Khurshid se evaluaron y quedaron fuera del entrenamiento porque usan otro criterio de caja o cubren otras clases (ver [`docs/dataset_registry.md`](docs/dataset_registry.md)).
+
+## 5. Modelos y resultados
+
+| | **v1 (producción)** | **v2 de investigación** |
+|---|---|---|
+| Autor | Anthony Madezco | Cristhian Pazmiño |
+| Arquitectura | YOLO11s, 640 px | YOLO11n, 960 px |
+| Datos | Maestro: 979 train / 173 val / 98 test / 178 externa | Cohorte estricta: 681 / 121 / 94 / 170 |
+| Selección | Comparación n960 contra s640 | 12 ensayos TPE + 3 semillas + YOLO26n + ablación |
+| mAP50 validación | **0,634** | 0,633 |
+| mAP50 test interno | sin evaluar | **0,722** (IC95 0,683–0,758) |
+| mAP50 externa | sin evaluar | **0,571** (IC95 0,473–0,629) |
+| Umbral operativo | — | 0,15, fijado en validación |
+| Dónde se usa | dental-xray-app (`models/v1/`) | App local de demostración (`app/`) |
+
+> **No son directamente comparables.** Usan cohortes y preprocesamiento distintos. La comparación justa (evaluar el v1 sobre el mismo test del v2) está pendiente.
+
+**AP50 por clase.** Para el v1 se mide en validación; para el v2, en test interno:
+
+| Clase | v1 (val) | v2 (test) |
+|---|---|---|
+| caries | 0,338 | 0,356 |
+| lesion_periapical | 0,262 | 0,467 |
+| diente_impactado | 0,857 | 0,921 |
+| restauracion | 0,634 | 0,730 |
+| endodoncia | 0,692 | 0,892 |
+| protesis_fija | 0,753 | 0,805 |
+| implante | 0,899 | 0,886 |
+
+**Lectura:**
+- Los tratamientos y el diente impactado se detectan bien.
+- **Caries y lesión periapical siguen siendo el reto**: el recall está cerca de 0,39 en test, es decir, se escapan unas 6 de cada 10.
+- Son también las clases con menor acuerdo entre los anotadores originales (49 % y 40 %), lo que limita el techo alcanzable.
+- La referencia publicada (Mureșanu et al., 2024) da un mAP50 de 0,657.
+
+Detalle de cada modelo:
+- v1: [`docs/models.md`](docs/models.md)
+- v2: [`docs/model_card_v2.md`](docs/model_card_v2.md), [`docs/optimizacion.md`](docs/optimizacion.md) y los informes en [`reports/completion/`](reports/completion/)
+
+## 6. Cómo se construyó
+
+**Pipeline v1** (dataset maestro y baseline):
+
+```bash
+python scripts/dataset_conversion/muresanu_dedup.py        # raw -> interim (remapeo, exclusiones, duplicados)
+python scripts/dataset_conversion/build_master.py          # interim -> data/processed/master (reparto por paciente, máscara)
+python -m src.data.provenance data/processed/master/dataset.yaml   # verifica la huella 2f7eae71…
+python -m src.training.train_baseline --config configs/training/baseline.yaml
+```
+
+**Pipeline v2 de investigación** (cohorte con contrato externo):
+
+```bash
+python scripts/dataset_conversion/recover_source.py --root <carpeta_local>   # descarga y verifica Zenodo
+python scripts/dataset_conversion/prepare_research.py                        # cohorte + contrato
+python scripts/training/complete_research.py pilot                           # piloto
+python scripts/training/complete_research.py experiments                     # TPE y confirmaciones
+python scripts/evaluation/evaluate_research.py                               # test, externa, bootstrap, estrés
+python scripts/evaluation/verify_deployment.py                               # ONNX y app
+```
+
+El v2 se ejecutó con su propio entorno: Python 3.12, PyTorch 2.11 cu128 y Ultralytics 8.4.173, más onnxruntime. Las versiones están fijadas en `requirements-research-cu128.lock`.
+
+Los dos pipelines conviven: el v2 entrena con `src/training/train_research.py` y no modifica el del v1. Los datos del v2 viven en `%LOCALAPPDATA%/DentalAI` (configurable con `DENTAL_LOCAL_ROOT`). Los notebooks `notebooks/01`–`05` recorren el estudio v2 paso a paso.
+
+**Principios aplicados en ambos:**
+- Test y externa se evalúan una sola vez, con el modelo ya elegido.
+- Las particiones se separan por paciente o por similitud, sin fugas.
+- Cada dataset y cada corrida dejan su huella (SHA-256, commit y entorno).
+- La misma máscara de bordes se aplica en el entrenamiento y en la inferencia.
+
+## 7. Aplicaciones
+
+- **App clínica (producción):** [dental-xray-app](https://github.com/amadezco777/dental-xray-app). Flujo: subir la radiografía → revisar los hallazgos de la IA (aceptar o descartar) → firmar con contraseña → PDF con QR y SHA-256 → envío por correo → verificación pública en `/verificar/<código>`. Cada doctor ve solo a sus pacientes (RLS en Supabase).
+- **App local de demostración (v2):** `app/start.ps1` levanta `http://127.0.0.1:8089`. Permite cargar una imagen, ver las cajas y descargar un CSV. No guarda imágenes.
+
+## 8. Limitaciones
+
+- La referencia son las anotaciones publicadas: no hubo una revisión odontológica local independiente.
+- No hay identificadores de paciente verificables. La separación se hizo por similitud de imagen.
+- No hay negativos sanos verificados, así que la especificidad clínica no es estimable.
+- Las imágenes son de un solo origen (Rumania): no representan a la población ecuatoriana.
+- No se midió utilidad clínica, tiempo de lectura ni equidad demográfica.
+
+## 9. Próximos pasos
+
+1. Evaluar el v1 sobre el test del v2 y decidir qué modelo sirve la app.
+2. Desplegar el etiquetador para que los odontólogos corrijan y generen datos propios para la siguiente versión.
+3. Revisión por 3 odontólogos (criterio de la propuesta), con su feedback documentado.
+4. Reforzar caries y lesión periapical con más resolución o *tiling*, y con datos de lesión de Mendeley.
+
+## 10. Estructura del repositorio
+
+```
+configs/        taxonomía, mapeos, configuraciones de entrenamiento (v1 y v2)
+scripts/        ejecutables: conversión, análisis, entrenamiento, evaluación, etiquetado
+src/            lógica importable: datos, entrenamiento, evaluación, inferencia
+app/            app local de demostración del v2
+notebooks/      estudio v2 en cinco cuadernos
+docs/           taxonomía, registro de datasets y de modelos, ética, arquitectura, manual
+reports/        informes agregados (sin imágenes de pacientes)
+artifacts/runs/ registros de las corridas del v2 (configuración, métricas por época)
+tests/          pruebas (pytest)
+data/, runs/, models/   NO versionados: datos y pesos quedan en local
+```
+
+## 11. Puesta en marcha
 
 ```bash
 python -m venv .venv
-.venv\Scripts\activate        # Windows
+.venv\Scripts\activate
 pip install -r requirements.txt
+pytest -m "not integration"     # pruebas rápidas; las de entrenamiento real: pytest -m integration
 ```
 
-Copia `.env.example` a `.env` y ajusta las rutas locales si hace falta.
+## 12. Datos, privacidad y licencias
 
-## 9. Datos y privacidad
-
-Los datasets, las imágenes médicas y los modelos entrenados **no se versionan**: son pesados y las imágenes clínicas tienen implicaciones de privacidad y de licencia. Se mantienen en local, bajo `data/` y `models/`, cuya estructura sí está versionada mediante archivos `.gitkeep`.
-
-Cada dataset debe usarse conforme a su licencia original, registrada en [`docs/dataset_registry.md`](docs/dataset_registry.md).
-
-## 10. Licencia
-
-MIT — ver [`LICENSE`](LICENSE). La licencia cubre el **código** de este repositorio; **no** se extiende a los datasets de terceros, que conservan sus propias condiciones de uso.
-"# Denta_AI_model" 
+- **Muresanu** solo permite uso no comercial en investigación y docencia, y prohíbe redistribuirlo. Por eso las imágenes, los datos derivados y los pesos **no se versionan**, y los repos son privados. Fuente oficial: https://doi.org/10.5281/zenodo.15487430
+- **Ultralytics** es AGPL-3.0 (ver [`licenses/`](licenses/)).
+- **El código propio** es MIT (ver [`LICENSE`](LICENSE)). Esa licencia no se extiende a los datos ni a las dependencias.
+- Uso de IA: el desarrollo contó con asistentes de IA para código y documentación. Los resultados provienen de ejecuciones registradas.
