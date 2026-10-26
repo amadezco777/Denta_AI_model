@@ -125,3 +125,12 @@ desktop.ini
 .vscode/
 !.vscode/extensions.json
 *.iml
+
+# Pipeline v2 de investigacion
+# Patron de grises generado; no contiene imagenes de pacientes.
+!app/demo/control_sintetico.png
+!models/**/README.md
+.venv-*/
+# Revisiones y contratos locales pueden contener identificadores de pacientes.
+configs/data/contracts/**
+!configs/data/contracts/.gitkeep
