@@ -1,0 +1,148 @@
+{
+  "box_geometry_and_cooccurrence_train_only": true,
+  "box_size_transform": "native_validation_per_axis_ceil_resize_before_padding_without_augmentation",
+  "by_class": {
+    "caries": {
+      "boxes": 1426,
+      "min_side_640_le8": 198,
+      "min_side_960_le8": 76,
+      "median_min_side_640": 13.6606265,
+      "median_area_fraction": 0.0010679925239999999
+    },
+    "lesion_periapical": {
+      "boxes": 471,
+      "min_side_640_le8": 3,
+      "min_side_960_le8": 0,
+      "median_min_side_640": 18.211648,
+      "median_area_fraction": 0.001713924398
+    },
+    "diente_impactado": {
+      "boxes": 371,
+      "min_side_640_le8": 0,
+      "min_side_960_le8": 0,
+      "median_min_side_640": 44.88064,
+      "median_area_fraction": 0.010511952864
+    },
+    "restauracion": {
+      "boxes": 2298,
+      "min_side_640_le8": 95,
+      "min_side_960_le8": 17,
+      "median_min_side_640": 17.50304,
+      "median_area_fraction": 0.0017450865375
+    },
+    "endodoncia": {
+      "boxes": 1617,
+      "min_side_640_le8": 100,
+      "min_side_960_le8": 33,
+      "median_min_side_640": 16.6496,
+      "median_area_fraction": 0.0028158264
+    },
+    "protesis_fija": {
+      "boxes": 760,
+      "min_side_640_le8": 1,
+      "min_side_960_le8": 0,
+      "median_min_side_640": 32.906966999999995,
+      "median_area_fraction": 0.0078246028235
+    },
+    "implante": {
+      "boxes": 185,
+      "min_side_640_le8": 0,
+      "min_side_960_le8": 0,
+      "median_min_side_640": 23.376640000000002,
+      "median_area_fraction": 0.004271030368000001
+    }
+  },
+  "cooccurrence": [
+    [
+      406,
+      170,
+      109,
+      242,
+      220,
+      140,
+      11
+    ],
+    [
+      170,
+      236,
+      57,
+      129,
+      138,
+      96,
+      11
+    ],
+    [
+      109,
+      57,
+      151,
+      98,
+      77,
+      32,
+      4
+    ],
+    [
+      242,
+      129,
+      98,
+      408,
+      310,
+      186,
+      42
+    ],
+    [
+      220,
+      138,
+      77,
+      310,
+      425,
+      245,
+      42
+    ],
+    [
+      140,
+      96,
+      32,
+      186,
+      245,
+      294,
+      47
+    ],
+    [
+      11,
+      11,
+      4,
+      42,
+      42,
+      47,
+      55
+    ]
+  ],
+  "original_width_by_partition": {
+    "train": {
+      "width_min": 804,
+      "width_max": 2976,
+      "width_median": 2652.0
+    },
+    "val": {
+      "width_min": 1758,
+      "width_max": 2896,
+      "width_median": 2652.0
+    },
+    "test": {
+      "width_min": 2382,
+      "width_max": 2902,
+      "width_median": 2775.0
+    },
+    "external": {
+      "width_min": 2398,
+      "width_max": 5538,
+      "width_median": 2760.0
+    }
+  },
+  "train_boxes_per_image_median": 9.0,
+  "train_boxes_per_image_max": 45,
+  "train_boxes_per_image_q1": 5.0,
+  "train_boxes_per_image_q3": 14.0,
+  "train_boxes_upper_iqr_fence": 27.5,
+  "train_images_above_iqr_fence": 17
+}

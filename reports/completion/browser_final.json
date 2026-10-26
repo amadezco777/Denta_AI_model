@@ -1,0 +1,34 @@
+{
+  "actual_final_weights": true,
+  "weights_sha256": "70b130153628b4564defae0d3542be4edef9eea147e2b2b4096b840761426d2e",
+  "examples_verified": [
+    {
+      "id": "1",
+      "detections": 14,
+      "image_width": 1280,
+      "image_height": 668
+    },
+    {
+      "id": "2",
+      "detections": 21,
+      "image_width": 1280,
+      "image_height": 665
+    }
+  ],
+  "csv_download_verified": true,
+  "csv_method": "CUA observed actual export link; local HTTP attachment saved and parsed: 21 rows, six columns. Native Chrome download events were not exposed; no claim about the browser download directory.",
+  "csv_evidence": "reports/completion/csv_verification.json",
+  "invalid_input_verified": true,
+  "oversize_input_verified": true,
+  "previous_results_cleared": true,
+  "synthetic_control_detections": 5,
+  "synthetic_notice": "Technical pattern, not a radiograph or a verified healthy negative; excluded from scientific metrics.",
+  "ui_negative_method": "Built-in verify=1 UI harness creates synthetic File objects and exercises the shared upload handler, API, and client size rejection.",
+  "file_picker_automation_verified": false,
+  "file_picker_limitation": "Chrome extension requires Allow access to file URLs; no browser permissions were changed.",
+  "responsive_mobile_verified": false,
+  "responsive_limitation": "Viewport override did not apply to the selected Chrome tab; width stayed 1707. No mobile visual verification claimed.",
+  "desktop_verified": true,
+  "public_capture": "docs/assets/app_final.jpg",
+  "source_radiographs_in_public_capture": false
+}

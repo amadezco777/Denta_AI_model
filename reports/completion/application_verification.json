@@ -1,0 +1,76 @@
+{
+  "actual_final_weights": true,
+  "model_sha256": "70b130153628b4564defae0d3542be4edef9eea147e2b2b4096b840761426d2e",
+  "device": "cpu",
+  "tested_images": [
+    {
+      "sample_id": "train_1066",
+      "detections": 14,
+      "request_ms": 252.0654999971157
+    },
+    {
+      "sample_id": "train_1071",
+      "detections": 21,
+      "request_ms": 101.57009999966249
+    },
+    {
+      "sample_id": "train_1073",
+      "detections": 33,
+      "request_ms": 98.88520000095014
+    },
+    {
+      "sample_id": "train_1081",
+      "detections": 18,
+      "request_ms": 122.03490000683814
+    },
+    {
+      "sample_id": "train_1104",
+      "detections": 20,
+      "request_ms": 133.19170000613667
+    },
+    {
+      "sample_id": "train_1109",
+      "detections": 9,
+      "request_ms": 107.40260001330171
+    },
+    {
+      "sample_id": "train_1112",
+      "detections": 14,
+      "request_ms": 103.99899999902118
+    },
+    {
+      "sample_id": "train_1127",
+      "detections": 5,
+      "request_ms": 106.80649999994785
+    },
+    {
+      "sample_id": "train_1134",
+      "detections": 16,
+      "request_ms": 95.46790001331829
+    },
+    {
+      "sample_id": "train_1143",
+      "detections": 22,
+      "request_ms": 121.13959999987856
+    },
+    {
+      "sample_id": "train_1146",
+      "detections": 22,
+      "request_ms": 117.53590000444092
+    },
+    {
+      "sample_id": "train_1153",
+      "detections": 39,
+      "request_ms": 119.9884999950882
+    }
+  ],
+  "preprocessing_byte_identical": true,
+  "invalid_image_status": 422,
+  "path_traversal_example_status": 404,
+  "warm_end_to_end_request_median_ms": 107.40260001330171,
+  "warm_end_to_end_request_p95_ms": 127.6133000064874,
+  "warm_images": 11,
+  "includes": "decode, grayscale, mask, resize, inference, NMS, annotation, PNG/base64 and HTTP serialization",
+  "human_usability_study": false,
+  "clinical_validation": false
+}

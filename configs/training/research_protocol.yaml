@@ -1,0 +1,66 @@
+# Frozen before model fitting. Reference: original source annotations, not a
+# locally adjudicated clinical truth. Holdouts are never tuning inputs.
+schema: dental-research-protocol-v2
+seed: 42
+contract: configs/data/contracts/research_v2.json
+local_root: C:/Users/crisc/AppData/Local/DentalAI
+pilot_epochs: 3
+search:
+  trials: 12
+  epochs: 10
+  sampler: TPE
+  objective: mean_validation_AP50_caries_and_periapical
+  model: yolo11n.pt
+  space:
+    lr0: [0.0002, 0.003]
+    weight_decay: [0.00001, 0.002]
+    scale: [0.05, 0.4]
+    imgsz: [640, 960]
+confirmation:
+  epochs: 50
+  patience: 15
+  seeds: [42, 43, 44]
+  baseline: yolo11n_640_AdamW_lr0.001_wd0.0005_scale0.2
+  comparisons: [yolo26n_same_selected_configuration, selected_with_mosaic0.5]
+evaluation:
+  inference_confidence_floor: 0.001
+  matching_iou: [0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95]
+  nms_iou: 0.7
+  max_detections: 300
+  rect: false
+  operating_threshold_grid: [0.05, 0.8, 0.05]
+  operating_threshold_objective: macro_F1_caries_and_periapical_on_validation
+  final_model: selected_yolo11n_seed42
+  test_once_after_selection: true
+  bootstrap_replicates: 1000
+  bootstrap_unit: image
+  patient_identity: unknown
+  stress_partition: val
+  stress_scenarios: [blur_sigma1.2, blur_sigma2.0, noise_sd5, noise_sd12, jpeg_quality40, brightness0.7, brightness1.3, downsample0.5]
+train:
+  batch: 8
+  device: 0
+  workers: 0
+  amp: false
+  cache: false
+  optimizer: AdamW
+  lr0: 0.001
+  lrf: 0.01
+  weight_decay: 0.0005
+  imgsz: 640
+  patience: 15
+  nbs: 64
+  fliplr: 0.5
+  flipud: 0.0
+  degrees: 5.0
+  scale: 0.2
+  translate: 0.1
+  hsv_h: 0.0
+  hsv_s: 0.0
+  hsv_v: 0.2
+  mosaic: 0.0
+  mixup: 0.0
+  copy_paste: 0.0
+  close_mosaic: 0
+  plots: true
+  verbose: false

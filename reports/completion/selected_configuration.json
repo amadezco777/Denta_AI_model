@@ -1,0 +1,15 @@
+{
+  "trial": 9,
+  "params": {
+    "lr0": 0.0022391866944421793,
+    "weight_decay": 0.0019219976360163777,
+    "scale": 0.2279497416264258,
+    "imgsz": 960
+  },
+  "value": 0.17925537443297865,
+  "map50": 0.5880124218385016,
+  "map50_95": 0.2523789266030205,
+  "run": "C:\\Users\\crisc\\AppData\\Local\\DentalAI\\runs\\research_v2\\search_09",
+  "selection_partition": "val",
+  "budget_epochs": 10
+}

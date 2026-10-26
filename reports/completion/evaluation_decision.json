@@ -1,0 +1,91 @@
+{
+  "final_run": "selected_n_s42",
+  "weights_sha256": "70b130153628b4564defae0d3542be4edef9eea147e2b2b4096b840761426d2e",
+  "imgsz": 960,
+  "threshold": 0.15000000000000002,
+  "objective": "validation_pathology_macro_F1",
+  "grid": [
+    {
+      "threshold": 0.05,
+      "pathology_macro_f1": 0.2471334798287131,
+      "false_positives_per_image": 19.181818181818183
+    },
+    {
+      "threshold": 0.1,
+      "pathology_macro_f1": 0.3031608483948173,
+      "false_positives_per_image": 10.206611570247935
+    },
+    {
+      "threshold": 0.15000000000000002,
+      "pathology_macro_f1": 0.3206569581729923,
+      "false_positives_per_image": 6.636363636363637
+    },
+    {
+      "threshold": 0.2,
+      "pathology_macro_f1": 0.3071466989377437,
+      "false_positives_per_image": 4.628099173553719
+    },
+    {
+      "threshold": 0.25,
+      "pathology_macro_f1": 0.30906567408996277,
+      "false_positives_per_image": 3.272727272727273
+    },
+    {
+      "threshold": 0.3,
+      "pathology_macro_f1": 0.2808467449615775,
+      "false_positives_per_image": 2.4049586776859506
+    },
+    {
+      "threshold": 0.35000000000000003,
+      "pathology_macro_f1": 0.23131464798131468,
+      "false_positives_per_image": 1.7603305785123966
+    },
+    {
+      "threshold": 0.4,
+      "pathology_macro_f1": 0.17318722163478484,
+      "false_positives_per_image": 1.0991735537190082
+    },
+    {
+      "threshold": 0.45,
+      "pathology_macro_f1": 0.11984517945109076,
+      "false_positives_per_image": 0.71900826446281
+    },
+    {
+      "threshold": 0.5,
+      "pathology_macro_f1": 0.07811837285521496,
+      "false_positives_per_image": 0.47107438016528924
+    },
+    {
+      "threshold": 0.55,
+      "pathology_macro_f1": 0.05381573744563069,
+      "false_positives_per_image": 0.33884297520661155
+    },
+    {
+      "threshold": 0.6000000000000001,
+      "pathology_macro_f1": 0.05094714639191984,
+      "false_positives_per_image": 0.18181818181818182
+    },
+    {
+      "threshold": 0.6500000000000001,
+      "pathology_macro_f1": 0.047732305421143276,
+      "false_positives_per_image": 0.09917355371900827
+    },
+    {
+      "threshold": 0.7000000000000001,
+      "pathology_macro_f1": 0.03296703296703297,
+      "false_positives_per_image": 0.0743801652892562
+    },
+    {
+      "threshold": 0.7500000000000001,
+      "pathology_macro_f1": 0.003773584905660377,
+      "false_positives_per_image": 0.01652892561983471
+    },
+    {
+      "threshold": 0.8,
+      "pathology_macro_f1": 0.0,
+      "false_positives_per_image": 0.008264462809917356
+    }
+  ],
+  "protocol_sha256": "1cfa09d4681e9a5e2e81480ce2f4248e0530c41e3203269d42fad5ce557bcec8",
+  "decided_before_holdout_predictions": true
+}

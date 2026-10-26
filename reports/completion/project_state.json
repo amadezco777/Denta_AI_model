@@ -1,0 +1,327 @@
+{
+  "updated_at_utc": "2026-10-26T18:26:09.245967+00:00",
+  "official_questions_received": true,
+  "questions_note": "Preguntas proporcionadas por el usuario en docs/defensa/preguntas_oficiales.json.",
+  "defense_assignment": [
+    "Cristhian Pazmino Parra",
+    "Anthony"
+  ],
+  "personal_response_recording_exists": false,
+  "memory": "CONTEXTO_PROYECTO.md",
+  "runs": [
+    {
+      "name": "ablation_mosaic_s42",
+      "status": "completed",
+      "epochs_recorded": 50,
+      "elapsed_seconds": 1535.2236268999986,
+      "best_sha256": "d4e8f2abd8eb94a9ba281cc5503173d0a7077f67ca1707979f93d0a124c3a3f6",
+      "resources": {
+        "train_seconds": 1532.567,
+        "gpu_mem_peak_gb": 5.876
+      },
+      "error": null
+    },
+    {
+      "name": "architecture_26n_s42",
+      "status": "completed",
+      "epochs_recorded": 32,
+      "elapsed_seconds": 977.0652633999998,
+      "best_sha256": "d3d224b480c53e6c1171c38c81340eb664b4c802792053e6868deb3c536a1311",
+      "resources": {
+        "train_seconds": 974.526,
+        "gpu_mem_peak_gb": 6.61
+      },
+      "error": null
+    },
+    {
+      "name": "baseline_n640_s42",
+      "status": "completed",
+      "epochs_recorded": 50,
+      "elapsed_seconds": 940.4217944999982,
+      "best_sha256": "d6118edcaa8d902d250b242f88f8dca9d442475df9e9aa781f4131a5a6dcdd2e",
+      "resources": {
+        "train_seconds": 937.665,
+        "gpu_mem_peak_gb": 2.418
+      },
+      "error": null
+    },
+    {
+      "name": "pilot_n640",
+      "status": "completed",
+      "epochs_recorded": 3,
+      "elapsed_seconds": 83.07648639999388,
+      "best_sha256": "8cc36502a42a9ff25badc644066720337b53410eb31bbd782b2701e236666ece",
+      "resources": {
+        "train_seconds": 81.038,
+        "gpu_mem_peak_gb": 2.401
+      },
+      "error": null
+    },
+    {
+      "name": "search_00",
+      "status": "completed",
+      "epochs_recorded": 10,
+      "elapsed_seconds": 199.4959433999975,
+      "best_sha256": "2aeb8252bacef6a3b766a2c1e22240cd478ed3e0bfe697dca899786deee8e8b1",
+      "resources": {
+        "train_seconds": 196.962,
+        "gpu_mem_peak_gb": 2.401
+      },
+      "error": null
+    },
+    {
+      "name": "search_01",
+      "status": "completed",
+      "epochs_recorded": 10,
+      "elapsed_seconds": 279.35450899999705,
+      "best_sha256": "5b856b1a1605ebe9d5995f36ed744c707d43e702a5867d561a3b2124a9a03ec0",
+      "resources": {
+        "train_seconds": 276.481,
+        "gpu_mem_peak_gb": 5.849
+      },
+      "error": null
+    },
+    {
+      "name": "search_02",
+      "status": "completed",
+      "epochs_recorded": 10,
+      "elapsed_seconds": 169.72333990000334,
+      "best_sha256": "7081fb59a09b7ddb16e6d0c01411a54ba1adbf0648f7855b1a27a3b1863f126b",
+      "resources": {
+        "train_seconds": 167.714,
+        "gpu_mem_peak_gb": 2.416
+      },
+      "error": null
+    },
+    {
+      "name": "search_03",
+      "status": "completed",
+      "epochs_recorded": 10,
+      "elapsed_seconds": 189.05856040000072,
+      "best_sha256": "c9c81c108bcc58bf55aaeb5fcd50597ce1aa0f451cf77dcab9d386efa1b1beca",
+      "resources": {
+        "train_seconds": 187.036,
+        "gpu_mem_peak_gb": 2.416
+      },
+      "error": null
+    },
+    {
+      "name": "search_04",
+      "status": "completed",
+      "epochs_recorded": 10,
+      "elapsed_seconds": 309.062686199999,
+      "best_sha256": "838dc3221c1b1cb34b275fe647ba24d8bcdd6375e907b21ac1b793e64799630e",
+      "resources": {
+        "train_seconds": 306.599,
+        "gpu_mem_peak_gb": 5.849
+      },
+      "error": null
+    },
+    {
+      "name": "search_05",
+      "status": "completed",
+      "epochs_recorded": 10,
+      "elapsed_seconds": 187.53126650000195,
+      "best_sha256": "4d48a43dfbefbd47f6afd31f63bcd92e008c72a863cc983c4ba816d0fab9afbd",
+      "resources": {
+        "train_seconds": 185.937,
+        "gpu_mem_peak_gb": 2.416
+      },
+      "error": null
+    },
+    {
+      "name": "search_06",
+      "status": "completed",
+      "epochs_recorded": 10,
+      "elapsed_seconds": 289.4129576999985,
+      "best_sha256": "9471c783d2e6ef29ea8642e86625b25ee764b726857e24f1437fc3c373a061d5",
+      "resources": {
+        "train_seconds": 287.106,
+        "gpu_mem_peak_gb": 5.849
+      },
+      "error": null
+    },
+    {
+      "name": "search_07",
+      "status": "completed",
+      "epochs_recorded": 10,
+      "elapsed_seconds": 295.3356335999997,
+      "best_sha256": "286db890a64914cd9f0b57781074c4cdb63198668bb94bedb7c4dc2c19e78b2d",
+      "resources": {
+        "train_seconds": 293.012,
+        "gpu_mem_peak_gb": 5.849
+      },
+      "error": null
+    },
+    {
+      "name": "search_08",
+      "status": "completed",
+      "epochs_recorded": 10,
+      "elapsed_seconds": 292.0753129000004,
+      "best_sha256": "698c67c3b2a00baec8f4ac5f389d8eb02a527f2de733293717c9fda066e5cb1f",
+      "resources": {
+        "train_seconds": 289.555,
+        "gpu_mem_peak_gb": 5.849
+      },
+      "error": null
+    },
+    {
+      "name": "search_09",
+      "status": "completed",
+      "epochs_recorded": 10,
+      "elapsed_seconds": 299.3098011999973,
+      "best_sha256": "b76f2dfb3482e28c465135d85c5355284be714e4bbf73c572438df5da5a38fe1",
+      "resources": {
+        "train_seconds": 296.948,
+        "gpu_mem_peak_gb": 5.849
+      },
+      "error": null
+    },
+    {
+      "name": "search_10",
+      "status": "completed",
+      "epochs_recorded": 10,
+      "elapsed_seconds": 295.8103429000039,
+      "best_sha256": "bb83b159370ace6c6ee71ce044b66c2b60eaca3a5e01c7c6c339e902f2dec65f",
+      "resources": {
+        "train_seconds": 293.302,
+        "gpu_mem_peak_gb": 5.849
+      },
+      "error": null
+    },
+    {
+      "name": "search_11",
+      "status": "completed",
+      "epochs_recorded": 10,
+      "elapsed_seconds": 308.323810899994,
+      "best_sha256": "4fa9683afd30b4d1d9e559aea8ea644cd3456dcab7294140728e31089b39414f",
+      "resources": {
+        "train_seconds": 305.767,
+        "gpu_mem_peak_gb": 5.849
+      },
+      "error": null
+    },
+    {
+      "name": "selected_n_s42",
+      "status": "completed",
+      "epochs_recorded": 41,
+      "elapsed_seconds": 1211.4412002000026,
+      "best_sha256": "70b130153628b4564defae0d3542be4edef9eea147e2b2b4096b840761426d2e",
+      "resources": {
+        "train_seconds": 1208.075,
+        "gpu_mem_peak_gb": 5.849
+      },
+      "error": null
+    },
+    {
+      "name": "selected_n_s43",
+      "status": "completed",
+      "epochs_recorded": 45,
+      "elapsed_seconds": 1272.1360067999922,
+      "best_sha256": "0af2d041cd531f7d335da9013b3096d53f528326d88867f5e50577e1d7e0f04c",
+      "resources": {
+        "train_seconds": 1269.147,
+        "gpu_mem_peak_gb": 5.853
+      },
+      "error": null
+    },
+    {
+      "name": "selected_n_s44",
+      "status": "completed",
+      "epochs_recorded": 42,
+      "elapsed_seconds": 1228.2618555999943,
+      "best_sha256": "a98a801677679bfe97a8045011c2a49bb3d29b392bba4bbe86c458776c48c65e",
+      "resources": {
+        "train_seconds": 1225.268,
+        "gpu_mem_peak_gb": 5.828
+      },
+      "error": null
+    }
+  ],
+  "measured_progress": {
+    "confirmed_models": 6,
+    "required_confirmations": 6,
+    "evaluated_partitions": [
+      "train",
+      "val",
+      "test",
+      "external"
+    ],
+    "required_partitions": [
+      "train",
+      "val",
+      "test",
+      "external"
+    ],
+    "stress_scenarios": 8,
+    "models_with_native_parity_passed": 6,
+    "executed_notebooks": [
+      {
+        "notebook": "01_exploracion.ipynb",
+        "status": "executed",
+        "code_cells": 4,
+        "errors": 0
+      },
+      {
+        "notebook": "02_preprocesamiento.ipynb",
+        "status": "executed",
+        "code_cells": 4,
+        "errors": 0
+      },
+      {
+        "notebook": "03_modelado.ipynb",
+        "status": "executed",
+        "code_cells": 3,
+        "errors": 0
+      },
+      {
+        "notebook": "04_optimizacion.ipynb",
+        "status": "executed",
+        "code_cells": 4,
+        "errors": 0
+      },
+      {
+        "notebook": "05_evaluacion.ipynb",
+        "status": "executed",
+        "code_cells": 5,
+        "errors": 0
+      }
+    ],
+    "quick_tests": {
+      "available": true,
+      "passed": 243,
+      "failures": 0,
+      "errors": 0
+    },
+    "integration_tests": {
+      "available": true,
+      "passed": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "evidence_pipeline_status": "completed",
+    "evidence_pipeline_stage": null,
+    "v2_documents_have_source_hash_verification": true,
+    "v2_documents_have_current_visual_review": true,
+    "presentations_have_current_visual_review": true,
+    "document_pages": {
+      "Tesis_Dental_AI_APA7": 79,
+      "Guia_de_presentacion_y_entrega_APA7": 7,
+      "Guiones_Dental_AI_Presentacion_20261026": 18,
+      "Respuestas_Oficiales_Dental_AI_20261026": 19
+    },
+    "browser_final_verified": true,
+    "pitch_media_status": "verified"
+  },
+  "reports": {
+    "selected_configuration.json": true,
+    "confirmation.json": true,
+    "evaluation.json": true,
+    "stress.json": true,
+    "metric_parity.json": true,
+    "metric_parity_all_models.json": true,
+    "export.json": true,
+    "application_verification.json": true,
+    "revision_20261026.json": true
+  }
+}

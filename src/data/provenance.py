@@ -79,11 +79,18 @@ def environment():
 DATASET_EXCLUDE = (".yaml", ".cache")
 
 
-def verify_dataset(yaml_path):
+def verify_dataset(yaml_path, lock_path=None):
     """Recalcula la huella del dataset y la compara con la de su yaml.
+
+    Con lock_path (pipeline de investigacion v2) verifica en cambio un contrato
+    externo (src/data/contract.py); sin el, el comportamiento del v1 no cambia.
 
     Devuelve (coincide, huella_registrada, huella_actual).
     """
+    if lock_path is not None:
+        from src.data.contract import verify_contract
+
+        return verify_contract(yaml_path, lock_path)
     yaml_path = Path(yaml_path)
     meta = yaml.safe_load(yaml_path.read_text(encoding="utf-8")).get("meta", {})
     expected = meta.get("provenance", {}).get("output_fingerprint")
@@ -92,10 +99,15 @@ def verify_dataset(yaml_path):
 
 
 if __name__ == "__main__":
-    # Uso: python -m src.data.provenance data/processed/master/dataset.yaml
+    # Uso: python -m src.data.provenance data/processed/master/dataset.yaml [--lock contrato.json]
+    import argparse
     import sys
 
-    ok, expected, actual = verify_dataset(sys.argv[1])
+    parser = argparse.ArgumentParser(description="Verifica la huella de un dataset")
+    parser.add_argument("yaml_path", type=Path)
+    parser.add_argument("--lock", type=Path, help="contrato externo (pipeline v2)")
+    args = parser.parse_args()
+    ok, expected, actual = verify_dataset(args.yaml_path, args.lock)
     print(f"registrada: {expected}\nactual:     {actual}")
     print("OK: el dataset coincide con el registrado." if ok
           else "DISTINTO: el dataset no es el que registra su yaml.")

@@ -1,0 +1,29 @@
+{
+  "checked_on_utc": "2026-10-20",
+  "works": [
+    {
+      "work": "Redmon et al. (2016)",
+      "primary_source": "https://openaccess.thecvf.com/content_cvpr_2016/html/Redmon_You_Only_Look_CVPR_2016_paper.html",
+      "verified_fields": ["four authors", "2016 conference publication", "CVPR proceedings", "pages 779–788"],
+      "use": "Published conference reference rather than an ambiguous arXiv year"
+    },
+    {
+      "work": "Mitchell et al. (2019)",
+      "primary_source": "https://arxiv.org/abs/1810.03993v2",
+      "verified_fields": ["nine authors", "version 2 dated 14 January 2019", "title", "related ACM DOI 10.1145/3287560.3287596"],
+      "use": "Explicitly cite the version of the preprint read"
+    },
+    {
+      "work": "Akiba et al. (2019)",
+      "primary_source": "https://optuna.org/",
+      "verified_fields": ["five authors", "2019", "framework paper title", "KDD publication"],
+      "use": "Existing 2019 arXiv reference retained; framework is versioned independently in the experiment lock"
+    },
+    {
+      "work": "Mureșanu et al. (2025)",
+      "primary_source": "https://zenodo.org/records/15487430",
+      "verified_fields": ["three creators", "dataset version 1", "2025 publication", "MD5", "source population", "original annotation and ethics statements", "noncommercial use and presentation restrictions", "required 2024 article citation"]
+    }
+  ],
+  "note": "Metadata were checked against primary publisher/author sources. No clinical review or new experimental outcome is inferred from these checks."
+}

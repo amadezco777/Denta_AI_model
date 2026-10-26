@@ -1,0 +1,5 @@
+# Install together with the frozen training environment for the GPU in use.
+fastapi==0.150.0
+uvicorn==0.54.0
+python-multipart==0.0.32
+Pillow==12.3.0

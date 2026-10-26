@@ -1,0 +1,310 @@
+{
+  "reviewed_at_utc": "2026-10-26T18:24:22.290895+00:00",
+  "status": "documents_and_official_scripts_verified",
+  "source_questions": {
+    "received_at_utc": "2026-10-26T18:11:54.077820+00:00",
+    "source_supplied_by_user": "C:\\Users\\crisc\\Downloads\\Proyecto Integrador video de respuestas y rúbrica.pdf",
+    "source_sha256": "89df13547e7ec7b482a1875df7ba0ff3835da906b3401d834ee0416dbbd4e562",
+    "source_pages": 2,
+    "assignment_confirmed_by_user": "En pareja: Cristhian primero, Anthony segundo",
+    "readme_order": [
+      "Cristhian Pazmino Parra",
+      "Anthony"
+    ],
+    "full_name_of_second_member_provided": false,
+    "requirements": {
+      "camera_per_speaker": true,
+      "say_name_before_first_answer": true,
+      "question_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "max_seconds_per_question": 120,
+      "real_interface_required_for_question_8": true,
+      "recording_exists": false
+    },
+    "questions": [
+      {
+        "number": 1,
+        "text": "¿Qué problema resuelve su sistema, quién es el usuario y qué haría hoy esa persona sin él?",
+        "speaker": "Cristhian Pazmino Parra",
+        "max_seconds": 120,
+        "option_to_answer": null
+      },
+      {
+        "number": 2,
+        "text": "¿De dónde vienen sus datos y qué limitaciones tienen (tamaño, sesgos, desbalance)? ¿Qué decisión de preprocesamiento fue la más importante y qué habría pasado sin ella?",
+        "speaker": "Anthony",
+        "max_seconds": 120,
+        "option_to_answer": null
+      },
+      {
+        "number": 3,
+        "text": "¿Por qué eligieron este modelo y no las otras técnicas que compararon? Muestren la comparación con el baseline.",
+        "speaker": "Cristhian Pazmino Parra",
+        "max_seconds": 120,
+        "option_to_answer": null
+      },
+      {
+        "number": 4,
+        "text": "Según el análisis de sensibilidad del Workshop S5, ¿qué hiperparámetros pesaron más y qué mejora cuantificable lograron entre antes y después?",
+        "speaker": "Anthony",
+        "max_seconds": 120,
+        "option_to_answer": null
+      },
+      {
+        "number": 5,
+        "text": "¿Por qué la métrica que eligieron es la adecuada para su problema? Muestren un caso donde el modelo falla y expliquen por qué.",
+        "speaker": "Cristhian Pazmino Parra",
+        "max_seconds": 120,
+        "option_to_answer": null
+      },
+      {
+        "number": 6,
+        "text": "¿Cómo comprobaron que el modelo no sufre overfitting y que funcionaría con datos nuevos?",
+        "speaker": "Anthony",
+        "max_seconds": 120,
+        "option_to_answer": null
+      },
+      {
+        "number": 7,
+        "text": "¿Cuál es el riesgo ético o social más importante de su proyecto (sesgo, privacidad, uso indebido) y qué medida concreta implementaron? ¿En qué casos no debería usarse?",
+        "speaker": "Cristhian Pazmino Parra",
+        "max_seconds": 120,
+        "option_to_answer": null
+      },
+      {
+        "number": 8,
+        "text": "Con grabación de pantalla, muestren cómo la interfaz maneja una entrada inválida y un error. ¿Qué decisiones de diseño tomaron pensando en el usuario final?",
+        "speaker": "Anthony",
+        "max_seconds": 120,
+        "option_to_answer": null
+      },
+      {
+        "number": 9,
+        "text": "Respondan solo la opción que corresponda a su tipo de proyecto: o A. Datos tabulares: ¿Qué variables resultaron más importantes y coincide eso con lo que esperaban del dominio? ¿Cómo evitaron fuga de datos (data leakage) al dividir los datos? o B. Imágenes: ¿Qué aumento de datos usaron y por qué? ¿Con qué tipo de imágenes se equivoca el modelo y qué tienen en común? o C. Texto, LLM o agentes: ¿Cómo evalúan la calidad de las respuestas y qué hacen cuando el sistema se equivoca o inventa información? ¿Qué datos del usuario se envían a servicios externos?",
+        "speaker": "Cristhian Pazmino Parra",
+        "max_seconds": 120,
+        "option_to_answer": "B. Imágenes"
+      },
+      {
+        "number": 10,
+        "text": "Elijan la decisión técnica más difícil o importante de su proyecto (distinta de las ya preguntadas). ¿Qué alternativas consideraron y por qué eligieron esa?",
+        "speaker": "Anthony",
+        "max_seconds": 120,
+        "option_to_answer": null
+      }
+    ]
+  },
+  "feedback": {
+    "provided_by": "user in chat",
+    "received_on": "2026-10-26",
+    "social_grade_as_transcribed": 90,
+    "component_scores": {
+      "stakeholders_and_impact": 22,
+      "ethical_risks": 24,
+      "mitigation": 18,
+      "responsibility": 13,
+      "compliance": 8,
+      "reflection_and_presentation": 5
+    },
+    "historical_metrics_quoted": {
+      "map50": 0.634,
+      "pathology_recall_approx": 0.31
+    },
+    "first_regularization_paragraph_attribution": "not verified as the YOLO Dental AI experiment",
+    "assignment_confirmation_verbatim": "En pareja: Cristhian primero, Anthony segundo",
+    "audit": "docs/defensa/respuesta_retroalimentacion.md"
+  },
+  "scientific_hashes_before": {
+    "evaluation.json": "da42def3cddbe26ea7e283cfd09b4fcf865cc9178ce33dc9d0bde84428e8f9ac",
+    "confirmation.json": "201f96b9d40604e0aeabf4691c49504197789648b3fd5f3936a0da37c8b44c8c",
+    "metric_parity_all_models.json": "47bca31353dc9018b52848e12dce97e6cfb97bdc47ff61674ec23c52ac29fa2d",
+    "search_trials.json": "d0d8a13124d30a225e88b1cd42d60d9799a53f9b9df0fe354e79f8025bc64bc3",
+    "stress.json": "982e741ac535b903c255def8b34d370ba3312b7911fb0069f4f051616fa1c8ac",
+    "export.json": "e313c7ba44a8847b242ce2294b217960f5567840340d40e32ae6152f4e465a3d",
+    "application_verification.json": "29135c84a356729bc26b9698725760b285b70378edc463728c24716df844acea"
+  },
+  "scientific_hashes_after": {
+    "evaluation.json": "da42def3cddbe26ea7e283cfd09b4fcf865cc9178ce33dc9d0bde84428e8f9ac",
+    "confirmation.json": "201f96b9d40604e0aeabf4691c49504197789648b3fd5f3936a0da37c8b44c8c",
+    "metric_parity_all_models.json": "47bca31353dc9018b52848e12dce97e6cfb97bdc47ff61674ec23c52ac29fa2d",
+    "search_trials.json": "d0d8a13124d30a225e88b1cd42d60d9799a53f9b9df0fe354e79f8025bc64bc3",
+    "stress.json": "982e741ac535b903c255def8b34d370ba3312b7911fb0069f4f051616fa1c8ac",
+    "export.json": "e313c7ba44a8847b242ce2294b217960f5567840340d40e32ae6152f4e465a3d",
+    "application_verification.json": "29135c84a356729bc26b9698725760b285b70378edc463728c24716df844acea"
+  },
+  "scientific_evidence_unchanged": true,
+  "training_or_holdout_tuning_performed": false,
+  "documents": {
+    "Tesis_Dental_AI_APA7": {
+      "pages": 79,
+      "source_words": 16495,
+      "tables": 20,
+      "figures": 17,
+      "sha256_docx": "68342c12a5c782b995f471f1576c6383c13cec72d7b13b64c222d392c321afbd",
+      "sha256_pdf": "b132ac49747cd9268a5823545203067e3518e47c5f89198f57ff60508f93aa0c",
+      "source_sha256": "7c3e0aa13f6d0428fb37fd523749c1ba54f87b47e18c351f944cbf6984399f76",
+      "toc_verified": [
+        {
+          "heading": "Resumen",
+          "page": 2
+        },
+        {
+          "heading": "Abstract",
+          "page": 3
+        },
+        {
+          "heading": "Introducción",
+          "page": 5
+        },
+        {
+          "heading": "Planteamiento de la investigación",
+          "page": 6
+        },
+        {
+          "heading": "Fundamentos y antecedentes",
+          "page": 10
+        },
+        {
+          "heading": "Metodología",
+          "page": 14
+        },
+        {
+          "heading": "Datos y análisis exploratorio",
+          "page": 21
+        },
+        {
+          "heading": "Desarrollo del sistema",
+          "page": 32
+        },
+        {
+          "heading": "Resultados y discusión",
+          "page": 37
+        },
+        {
+          "heading": "Optimización y validación en contextos simulados",
+          "page": 49
+        },
+        {
+          "heading": "Impacto social y responsabilidad",
+          "page": 58
+        },
+        {
+          "heading": "Comunicación del proyecto y propuesta de evaluación institucional",
+          "page": 67
+        },
+        {
+          "heading": "Conclusiones y recomendaciones",
+          "page": 69
+        },
+        {
+          "heading": "Referencias",
+          "page": 72
+        },
+        {
+          "heading": "Apéndice A Taxonomía y criterios operacionales",
+          "page": 76
+        },
+        {
+          "heading": "Apéndice B Ficha del modelo v2",
+          "page": 77
+        },
+        {
+          "heading": "Apéndice C Ejecución y artefactos reproducibles",
+          "page": 78
+        },
+        {
+          "heading": "Apéndice D Trazabilidad y límites de evidencia",
+          "page": 79
+        }
+      ],
+      "margin_check_passed": true,
+      "apa_base_format_verified": true
+    },
+    "Guia_de_presentacion_y_entrega_APA7": {
+      "pages": 7,
+      "source_words": 1220,
+      "tables": 1,
+      "figures": 0,
+      "sha256_docx": "b92ec1ca78be13d5b49f82a580b4e127c6427864071903526b34aa0f2187845b",
+      "sha256_pdf": "96eee97e96b8245a01dbd7fb0a8e28ad2f7d22d58fee214e28234c93c280d08f",
+      "source_sha256": "11306512de392bd64c484cd9d9001c01fc4d8d4fc76d1f52ff4bd5e707380991",
+      "toc_verified": [],
+      "margin_check_passed": true,
+      "apa_base_format_verified": true
+    },
+    "Guiones_Dental_AI_Presentacion_20261026": {
+      "pages": 18,
+      "source_words": 4169,
+      "tables": 1,
+      "figures": 0,
+      "sha256_docx": "a7083a11f33085fe8855b6ac589b60363e539925940c0fb3cddfdfbf271af3c2",
+      "sha256_pdf": "bff36f4d3298ac66a3f29d8727c01578cbb837bc7141ee697cdc2306f5b7500a",
+      "source_sha256": "a8a8a8d23d621a8bcdba0f3b06f44d6896be3bd7fe8500c8191a478143ff4275",
+      "toc_verified": [],
+      "margin_check_passed": true,
+      "apa_base_format_verified": true
+    },
+    "Respuestas_Oficiales_Dental_AI_20261026": {
+      "pages": 19,
+      "source_words": 3912,
+      "tables": 2,
+      "figures": 0,
+      "sha256_docx": "c178f30616b524fa26ae479227aef47999ca48ddf88426fec98b12998e5a9daf",
+      "sha256_pdf": "cbb1b845a51de2c7f0613930799c689481fbd06667062eb96e42e104175f4251",
+      "source_sha256": "73f579ae4b3fd2b04fba25323337ff2289a362709a42183342a92cb7e3ec601a",
+      "toc_verified": [],
+      "margin_check_passed": true,
+      "apa_base_format_verified": true
+    }
+  },
+  "visual_review": "output/tesis/visual_review_final.json",
+  "page_count": 123,
+  "camera_video_created": false,
+  "published_or_sent_to_third_parties": false,
+  "research_model_sha256": "70b130153628b4564defae0d3542be4edef9eea147e2b2b4096b840761426d2e",
+  "regulatory_sources": [
+    {
+      "institution": "Asamblea Nacional",
+      "url": "https://www.gob.ec/sites/default/files/regulations/2025-01/01%20Ley%20Org%C3%A1nica%20de%20Protecci%C3%B3n%20de%20Datos%20Personales.pdf",
+      "year": 2021
+    },
+    {
+      "institution": "Presidencia",
+      "url": "https://www.gob.ec/sites/default/files/regulations/2025-01/02%20Reglamento%20General%20a%20la%20Ley%20Org%C3%A1nica%20de%20Protecci%C3%B3n%20de%20Datos%20Personales_0.pdf",
+      "year": 2023
+    },
+    {
+      "institution": "SPDP",
+      "url": "https://www.spdp.gob.ec/marco-normativo/"
+    },
+    {
+      "institution": "MSP",
+      "url": "https://www.salud.gob.ec/preguntas-frecuentes-ceish/"
+    },
+    {
+      "institution": "ARCSA",
+      "resolution": "ARCSA-DE-2026-003-DASP",
+      "signature_date": "2026-04-28",
+      "effective_date_inferred_from_nine_month_clause": "2027-01-28",
+      "status_on_review_date": "deferred effect, not yet in force"
+    }
+  ],
+  "mitigation_targets": {
+    "introduced_after_evaluation": true,
+    "clinically_validated": false,
+    "prospective_recall_lower95_minimum_proposal": 0.7,
+    "prospective_fp_per_image_maximum_proposal": 5,
+    "future_train_val_gap_alarm_proposal": 0.05
+  },
+  "private_corpus_or_radiographic_media_included": false
+}

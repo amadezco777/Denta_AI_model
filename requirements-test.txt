@@ -1,0 +1,10 @@
+# Entorno rápido ampliado para v2, Windows Python 3.12.14, 2026-10-20.
+# No necesita GPU, PyTorch ni Ultralytics. No sustituye al lock historico.
+numpy==2.5.3
+opencv-python==5.0.0.93
+pillow==12.3.0
+PyYAML==6.0.3
+pytest==9.1.1
+fastapi==0.150.0
+python-multipart==0.0.32
+httpx==0.28.1

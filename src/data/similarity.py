@@ -8,17 +8,23 @@ escalar de dos miniaturas es su correlacion de Pearson.
 
 Umbrales medidos sobre Muresanu (2026-09-28, reports/figures/muresanu_near_dups.jpg):
   - >= 0,98: la misma imagen reexportada (a ojo, identicas).
-  - 0,90-0,98: el mismo paciente en otra visita (cambian los tratamientos).
-  - < 0,90: pacientes distintos; es el parecido general de dos panoramicas
-    (aparecen pares de centros distintos, que no pueden ser el mismo paciente).
+  - 0,90-0,98: candidatos a adquisiciones relacionadas, pendientes de confirmar.
+  - < 0,90: similitud insuficiente para esta heuristica; no prueba independencia.
+
+La correlacion no identifica pacientes ni demuestra que dos centros no puedan
+atender a la misma persona. La agrupacion transitiva es conservadora y requiere
+revision de metadatos o de adquisiciones para afirmar relaciones verificadas.
 """
 
 import cv2
+import math
 import numpy as np
 
 THUMB_SIZE = (96, 48)  # (ancho, alto): panoramicas ~2:1
 REEXPORT_THRESHOLD = 0.98
-SAME_PATIENT_THRESHOLD = 0.90
+SIMILARITY_THRESHOLD = 0.90
+# Alias historico para scripts EDA; no expresa una identidad clinica validada.
+SAME_PATIENT_THRESHOLD = SIMILARITY_THRESHOLD
 
 
 def thumbnail(path):
@@ -36,14 +42,27 @@ def thumbnail(path):
     return v / norm if norm > 1e-6 else np.zeros_like(v)
 
 
-def similar_pairs(vectors, threshold):
+def similar_pairs(vectors, threshold, block_size=256):
     """Pares (i, j), con i < j, cuya correlacion supera threshold."""
-    if len(vectors) < 2:
+    if (isinstance(threshold, bool) or not isinstance(threshold, (int, float))
+            or not math.isfinite(threshold) or not 0 <= threshold <= 1
+            or type(block_size) is not int or block_size < 1):
+        raise ValueError("Umbral finito en [0, 1] y bloque positivo requeridos")
+    if not len(vectors):
         return []
     x = np.asarray(vectors, dtype=np.float32)
-    corr = x @ x.T
-    i, j = np.where(np.triu(corr > threshold, 1))
-    return list(zip(i.tolist(), j.tolist()))
+    if x.ndim != 2 or not x.shape[1] or not np.isfinite(x).all():
+        raise ValueError("Miniaturas deben ser una matriz finita de vectores")
+    norms = np.linalg.norm(x, axis=1)
+    if not np.all((norms < 1e-6) | np.isclose(norms, 1, atol=1e-4)):
+        raise ValueError("Miniaturas deben tener norma 1 o ser el vector cero")
+    pairs = []
+    # Evita materializar toda la matriz N x N al ampliar el corpus.
+    for start in range(0, len(x), block_size):
+        corr = x[start:start + block_size] @ x.T
+        i, j = np.where(corr > threshold)
+        pairs.extend((int(a + start), int(b)) for a, b in zip(i, j) if b > a + start)
+    return pairs
 
 
 def connected_groups(n, pairs):
@@ -52,6 +71,11 @@ def connected_groups(n, pairs):
     Si A se parece a B y B a C, los tres quedan en el mismo grupo aunque A y C
     no superen el umbral entre si.
     """
+    if type(n) is not int or n < 0:
+        raise ValueError("Numero de elementos entero no negativo requerido")
+    pairs = list(pairs)
+    if any(type(a) is not int or type(b) is not int or not 0 <= a < n or not 0 <= b < n for a, b in pairs):
+        raise ValueError("Indices de grupos fuera de rango")
     parent = list(range(n))
 
     def find(a):

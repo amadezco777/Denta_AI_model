@@ -1,0 +1,74 @@
+{
+  "raw_images": 1808,
+  "accepted_images": 1066,
+  "excluded_images": 742,
+  "exclusion_reasons": {
+    "annotation_disagreement_between_exact_copies": 372,
+    "unconfirmed_class_remap": 98,
+    "unconfirmed_visual_reexport": 37,
+    "no_target_objects_and_unverified_negative_coverage": 68,
+    "redundant_exact_copy": 6,
+    "historically_ambiguous_annotation_block": 158,
+    "invalid_annotation": 3
+  },
+  "partitions": {
+    "train": {
+      "images": 681,
+      "boxes": {
+        "caries": 1426,
+        "lesion_periapical": 471,
+        "diente_impactado": 371,
+        "restauracion": 2298,
+        "endodoncia": 1617,
+        "protesis_fija": 760,
+        "implante": 185
+      }
+    },
+    "val": {
+      "images": 121,
+      "boxes": {
+        "caries": 263,
+        "lesion_periapical": 88,
+        "diente_impactado": 69,
+        "restauracion": 385,
+        "endodoncia": 277,
+        "protesis_fija": 138,
+        "implante": 34
+      }
+    },
+    "test": {
+      "images": 94,
+      "boxes": {
+        "caries": 137,
+        "lesion_periapical": 80,
+        "diente_impactado": 56,
+        "restauracion": 385,
+        "endodoncia": 261,
+        "protesis_fija": 89,
+        "implante": 25
+      }
+    },
+    "external": {
+      "images": 170,
+      "boxes": {
+        "caries": 294,
+        "lesion_periapical": 105,
+        "diente_impactado": 111,
+        "restauracion": 840,
+        "endodoncia": 497,
+        "protesis_fija": 183,
+        "implante": 16
+      }
+    }
+  },
+  "reference_status": "source_annotations_not_locally_adjudicated",
+  "preprocessing": {
+    "version": "research-gray-mask-max1280-v1",
+    "mask": {
+      "left": 0.03,
+      "right": 0.03,
+      "bottom": 0.04
+    },
+    "max_side": 1280
+  }
+}

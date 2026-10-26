@@ -1,0 +1,7 @@
+# Instalar torch/torchvision CUDA o CPU ANTES de este archivo, segun la maquina.
+# Snapshot del runner validado; preservar requirements.lock como referencia historica.
+ultralytics==8.4.173
+numpy==2.5.3
+opencv-python==5.0.0.93
+pillow==12.3.0
+PyYAML==6.0.3
