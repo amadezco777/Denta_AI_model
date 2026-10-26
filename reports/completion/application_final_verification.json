@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "weights_sha256": "70b130153628b4564defae0d3542be4edef9eea147e2b2b4096b840761426d2e",
+  "examples_and_csv": [
+    {
+      "example_id": "1",
+      "detections": 14,
+      "prediction_and_csv_ms": 489.94390000007115,
+      "csv_sha256": "489bc7f9e3d5d5f69b863db27391b5828d3bff270a34260501bdad259ea63fa8"
+    },
+    {
+      "example_id": "2",
+      "detections": 21,
+      "prediction_and_csv_ms": 131.28089999372605,
+      "csv_sha256": "3b87195cb59eba83337c470183ca2b5a9c76487fec809de466aac1c506556752"
+    }
+  ],
+  "synthetic_control_verified": true,
+  "invalid_and_oversize_422": true,
+  "path_like_example_404": true,
+  "browser_native_download_not_claimed": true,
+  "app_source_sha256": "7bf55482d55e94c4a3ee566172d00586b56e254f8ab3c4ac0565e7e77616b572"
+}

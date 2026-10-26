@@ -1,0 +1,16 @@
+{
+  "native_map50": 0.632788968120259,
+  "cached_map50": 0.632788968120259,
+  "native_map50_95": 0.27351978145127176,
+  "cached_map50_95": 0.2735197814512718,
+  "absolute_tolerance": 0.0001,
+  "per_class_ap50_absolute_differences": {
+    "caries": 0.0,
+    "lesion_periapical": 0.0,
+    "diente_impactado": 0.0,
+    "restauracion": 0.0,
+    "endodoncia": 0.0,
+    "protesis_fija": 0.0,
+    "implante": 0.0
+  }
+}

@@ -1,0 +1,2 @@
+# Entorno independiente: Python 3.12. No instalar en el entorno de entrenamiento.
+label-studio==1.23.2

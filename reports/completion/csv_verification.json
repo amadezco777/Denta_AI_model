@@ -1,0 +1,24 @@
+{
+  "method": "Actual browser link and local HTTP attachment saved and parsed; native browser download event not exposed",
+  "rows": 21,
+  "header": [
+    "clase",
+    "puntuacion",
+    "x1",
+    "y1",
+    "x2",
+    "y2"
+  ],
+  "headers": {
+    "date": "Tue, 20 Oct 2026 09:15:47 GMT",
+    "server": "uvicorn",
+    "content-disposition": "attachment; filename=\"dental_ai_detecciones.csv\"",
+    "cache-control": "no-store",
+    "x-content-type-options": "nosniff",
+    "content-length": "2268",
+    "content-type": "text/csv; charset=utf-8",
+    "Connection": "close"
+  },
+  "sha256": "3b87195cb59eba83337c470183ca2b5a9c76487fec809de466aac1c506556752",
+  "private_path": "C:\\Users\\crisc\\AppData\\Local\\DentalAI\\media\\clinical_verification\\example_2.csv"
+}

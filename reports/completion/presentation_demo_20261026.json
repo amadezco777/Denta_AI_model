@@ -1,0 +1,14 @@
+{
+  "path": "C:\\Users\\crisc\\OneDrive\\Documents\\Denta_AI_model\\output\\presentation\\Dental_AI_Demo_60s_20261026.mp4",
+  "sha256": "d8dbbe1d5e9287ea43e68b42b717e9dfb45ecb30e078e44f057af0d3de12b882",
+  "duration_seconds": 60.0,
+  "source_sha256": "b336a0619f8d564794c915fefdfb306ba5520be4e029b1144ed5677099fdef38",
+  "source_interval_seconds": [
+    105,
+    165
+  ],
+  "contains_source_radiographs": false,
+  "generic_synthetic_narration": true,
+  "instructions": "Insertar en la diapositiva de demostración; silenciar si el autor lee el speech.",
+  "complete_decode_passed": true
+}

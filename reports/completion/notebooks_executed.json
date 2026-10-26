@@ -1,0 +1,32 @@
+[
+  {
+    "notebook": "01_exploracion.ipynb",
+    "status": "executed",
+    "code_cells": 4,
+    "errors": 0
+  },
+  {
+    "notebook": "02_preprocesamiento.ipynb",
+    "status": "executed",
+    "code_cells": 4,
+    "errors": 0
+  },
+  {
+    "notebook": "03_modelado.ipynb",
+    "status": "executed",
+    "code_cells": 3,
+    "errors": 0
+  },
+  {
+    "notebook": "04_optimizacion.ipynb",
+    "status": "executed",
+    "code_cells": 4,
+    "errors": 0
+  },
+  {
+    "notebook": "05_evaluacion.ipynb",
+    "status": "executed",
+    "code_cells": 5,
+    "errors": 0
+  }
+]

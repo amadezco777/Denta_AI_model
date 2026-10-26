@@ -1,0 +1,217 @@
+{
+  "reviewed_at_utc": "2026-10-26T18:05:32.562856+00:00",
+  "status": "reviewed_and_verified",
+  "source_documents": [
+    {
+      "path": "C:\\Users\\crisc\\Downloads\\PROYECTO_FINAL_descripcion_2026.pdf",
+      "pages": 13,
+      "sha256": "d97f040dfe9a85fe212bbe0767438458235d5ddc026638025d4405275b5b5f61"
+    },
+    {
+      "path": "C:\\Users\\crisc\\Downloads\\Semana_6_Sesión final Vender un proyecto de IA.pdf",
+      "pages": 16,
+      "sha256": "96001d3c99b75d3977d5114e6d98d3ea10577cf330f6d9370eb8527f887880a8"
+    }
+  ],
+  "scientific_evidence_before": {
+    "evaluation.json": "da42def3cddbe26ea7e283cfd09b4fcf865cc9178ce33dc9d0bde84428e8f9ac",
+    "confirmation.json": "201f96b9d40604e0aeabf4691c49504197789648b3fd5f3936a0da37c8b44c8c",
+    "metric_parity_all_models.json": "47bca31353dc9018b52848e12dce97e6cfb97bdc47ff61674ec23c52ac29fa2d",
+    "search_trials.json": "d0d8a13124d30a225e88b1cd42d60d9799a53f9b9df0fe354e79f8025bc64bc3",
+    "stress.json": "982e741ac535b903c255def8b34d370ba3312b7911fb0069f4f051616fa1c8ac",
+    "export.json": "e313c7ba44a8847b242ce2294b217960f5567840340d40e32ae6152f4e465a3d",
+    "application_verification.json": "29135c84a356729bc26b9698725760b285b70378edc463728c24716df844acea"
+  },
+  "scientific_evidence_after": {
+    "evaluation.json": "da42def3cddbe26ea7e283cfd09b4fcf865cc9178ce33dc9d0bde84428e8f9ac",
+    "confirmation.json": "201f96b9d40604e0aeabf4691c49504197789648b3fd5f3936a0da37c8b44c8c",
+    "metric_parity_all_models.json": "47bca31353dc9018b52848e12dce97e6cfb97bdc47ff61674ec23c52ac29fa2d",
+    "search_trials.json": "d0d8a13124d30a225e88b1cd42d60d9799a53f9b9df0fe354e79f8025bc64bc3",
+    "stress.json": "982e741ac535b903c255def8b34d370ba3312b7911fb0069f4f051616fa1c8ac",
+    "export.json": "e313c7ba44a8847b242ce2294b217960f5567840340d40e32ae6152f4e465a3d",
+    "application_verification.json": "29135c84a356729bc26b9698725760b285b70378edc463728c24716df844acea"
+  },
+  "scientific_hashes_unchanged": true,
+  "training_or_holdout_tuning_performed": false,
+  "previous_test_run_date": "2026-10-20",
+  "previous_tests": {
+    "quick": 243,
+    "integration": 5,
+    "notebooks": 5,
+    "completed_runs": 19
+  },
+  "documents": {
+    "Tesis_Dental_AI_APA7": {
+      "pages": 75,
+      "source_words": 15193,
+      "tables": 18,
+      "figures": 17,
+      "sha256_docx": "59fffac9bebd30c6ac90b9b2c23df8ed80282e3da8c24678b88210814ce0ac45",
+      "sha256_pdf": "e02e35242a4f1522faa932c043f0868380b74c29b13a9b2452499e005fc28cb1",
+      "source_sha256": "afdc492c99eaaab9b6e164bb44112914faf6001af39fa87c7352b32aec413b30",
+      "toc_verified": [
+        {
+          "heading": "Resumen",
+          "page": 2
+        },
+        {
+          "heading": "Abstract",
+          "page": 3
+        },
+        {
+          "heading": "Introducción",
+          "page": 5
+        },
+        {
+          "heading": "Planteamiento de la investigación",
+          "page": 6
+        },
+        {
+          "heading": "Fundamentos y antecedentes",
+          "page": 10
+        },
+        {
+          "heading": "Metodología",
+          "page": 14
+        },
+        {
+          "heading": "Datos y análisis exploratorio",
+          "page": 21
+        },
+        {
+          "heading": "Desarrollo del sistema",
+          "page": 32
+        },
+        {
+          "heading": "Resultados y discusión",
+          "page": 37
+        },
+        {
+          "heading": "Optimización y validación en contextos simulados",
+          "page": 49
+        },
+        {
+          "heading": "Impacto social y responsabilidad",
+          "page": 58
+        },
+        {
+          "heading": "Comunicación del proyecto y propuesta de evaluación institucional",
+          "page": 63
+        },
+        {
+          "heading": "Conclusiones y recomendaciones",
+          "page": 65
+        },
+        {
+          "heading": "Referencias",
+          "page": 69
+        },
+        {
+          "heading": "Apéndice A Taxonomía y criterios operacionales",
+          "page": 72
+        },
+        {
+          "heading": "Apéndice B Ficha del modelo v2",
+          "page": 73
+        },
+        {
+          "heading": "Apéndice C Ejecución y artefactos reproducibles",
+          "page": 74
+        },
+        {
+          "heading": "Apéndice D Trazabilidad y límites de evidencia",
+          "page": 75
+        }
+      ],
+      "margin_check_passed": true,
+      "apa_base_format_verified": true
+    },
+    "Guia_de_presentacion_y_entrega_APA7": {
+      "pages": 7,
+      "source_words": 1189,
+      "tables": 1,
+      "figures": 0,
+      "sha256_docx": "bdc3f7a9efa06cfd9a667351d12221f88af23e89a483748795c6947d26e65fa1",
+      "sha256_pdf": "e9f2e7a62b5c6605c88fb35aa523168c5e4f1fce873b6d8ebabc7670d684ead1",
+      "source_sha256": "79f540907d97064857b41e8235a3f3855ab4d2e92765223b60b61763c1b9fb4c",
+      "toc_verified": [],
+      "margin_check_passed": true,
+      "apa_base_format_verified": true
+    },
+    "Guiones_Dental_AI_Presentacion_20261026": {
+      "pages": 18,
+      "source_words": 4153,
+      "tables": 1,
+      "figures": 0,
+      "sha256_docx": "be6d27fb5ca1d48f3eb523ea767cf7697ef4605018f9924696bf937ba62dc6b7",
+      "sha256_pdf": "2d3278c2b75436bcc37712670203cd9104768c9f6a0d6fe48b4b3817390010a3",
+      "source_sha256": "fa17a1393b15af3a496b9fba4f2a0c3ac64c60352cb66cc73e2c54f4360624c8",
+      "toc_verified": [],
+      "margin_check_passed": true,
+      "apa_base_format_verified": true
+    },
+    "presentation": {
+      "slides": 9,
+      "native_charts": 4,
+      "sha256_pptx": "b6b60ed61b815451e6427b31eff1035478814550eacab94d9ac5d44305c000fc"
+    },
+    "client_presentation": {
+      "slides": 14,
+      "native_charts": 4,
+      "sha256_pptx": "871730fdbfe856e2315d5a2cc8701ec9cbee6e04a46ed567b614bfb9b241568b"
+    }
+  },
+  "pitch": {
+    "slides": 9,
+    "spoken_words": 679,
+    "planned_seconds": 295,
+    "encoded_seconds": 295.02
+  },
+  "client_presentation": {
+    "slides": 14,
+    "spoken_words": 2032,
+    "planned_seconds": 1410
+  },
+  "budget": {
+    "engineering_hours": 120,
+    "engineering_rate_usd": 25,
+    "review_hours": 40,
+    "review_rate_usd": 35,
+    "coordination_hours": 24,
+    "coordination_rate_usd": 20,
+    "resources_usd": 100,
+    "subtotal_usd": 4980,
+    "contingency_fraction": 0.2,
+    "total_usd": 5976,
+    "hypothetical_only": true,
+    "labor_sensitivity_25_percent_range_usd": [
+      4512,
+      7440
+    ]
+  },
+  "visual_review": "output/tesis/visual_review_final.json",
+  "human_audit": "docs/revision_tesis_20261026.md",
+  "repository_access": {
+    "checked_on_utc": "2026-10-26",
+    "command": "gh repo view amadezco777/Denta_AI_model --json visibility,isPrivate,url",
+    "url": "https://github.com/amadezco777/Denta_AI_model",
+    "visibility": "PRIVATE",
+    "isPrivate": true,
+    "changed_visibility": false,
+    "pushed_changes": false
+  },
+  "official_questions_received": false,
+  "general_media_contain_source_radiographs": false,
+  "published_or_sent_to_third_parties": false,
+  "browser_review": {
+    "date": "2026-10-26",
+    "source_code_changed": false,
+    "synthetic_control_proposals": 5,
+    "screenshot": "docs/assets/app_revision_20261026.jpg",
+    "file_picker_permission_changed": false
+  },
+  "previous_archive_backup": {
+    "path": "output\\tesis\\archive\\antes_revision_20261026\\Dental_AI_Entrega_Completa_APA7_20261020.zip",
+    "sha256": "88fc711d76a363a6c45168e253203ce0843067061ab90dceb2831e766cd1a334"
+  }
+}

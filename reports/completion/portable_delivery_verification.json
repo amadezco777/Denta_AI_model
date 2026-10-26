@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "extracted_runtime": "C:\\Users\\crisc\\AppData\\Local\\DentalAI\\delivery_verification\\20261020_final",
+  "portable_relative_weights_resolved": true,
+  "synthetic_detections": 5,
+  "csv_header_plus_rows": 6,
+  "original_corpus_not_required_for_control": true,
+  "weights_sha256": "70b130153628b4564defae0d3542be4edef9eea147e2b2b4096b840761426d2e",
+  "app_source_sha256": "7bf55482d55e94c4a3ee566172d00586b56e254f8ab3c4ac0565e7e77616b572"
+}

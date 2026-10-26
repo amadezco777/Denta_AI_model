@@ -1,0 +1,1157 @@
+{
+  "reference_status": "source_annotations_not_locally_adjudicated",
+  "patient_independence": "unknown",
+  "decision": {
+    "final_run": "selected_n_s42",
+    "weights_sha256": "70b130153628b4564defae0d3542be4edef9eea147e2b2b4096b840761426d2e",
+    "imgsz": 960,
+    "threshold": 0.15000000000000002,
+    "objective": "validation_pathology_macro_F1",
+    "grid": [
+      {
+        "threshold": 0.05,
+        "pathology_macro_f1": 0.2471334798287131,
+        "false_positives_per_image": 19.181818181818183
+      },
+      {
+        "threshold": 0.1,
+        "pathology_macro_f1": 0.3031608483948173,
+        "false_positives_per_image": 10.206611570247935
+      },
+      {
+        "threshold": 0.15000000000000002,
+        "pathology_macro_f1": 0.3206569581729923,
+        "false_positives_per_image": 6.636363636363637
+      },
+      {
+        "threshold": 0.2,
+        "pathology_macro_f1": 0.3071466989377437,
+        "false_positives_per_image": 4.628099173553719
+      },
+      {
+        "threshold": 0.25,
+        "pathology_macro_f1": 0.30906567408996277,
+        "false_positives_per_image": 3.272727272727273
+      },
+      {
+        "threshold": 0.3,
+        "pathology_macro_f1": 0.2808467449615775,
+        "false_positives_per_image": 2.4049586776859506
+      },
+      {
+        "threshold": 0.35000000000000003,
+        "pathology_macro_f1": 0.23131464798131468,
+        "false_positives_per_image": 1.7603305785123966
+      },
+      {
+        "threshold": 0.4,
+        "pathology_macro_f1": 0.17318722163478484,
+        "false_positives_per_image": 1.0991735537190082
+      },
+      {
+        "threshold": 0.45,
+        "pathology_macro_f1": 0.11984517945109076,
+        "false_positives_per_image": 0.71900826446281
+      },
+      {
+        "threshold": 0.5,
+        "pathology_macro_f1": 0.07811837285521496,
+        "false_positives_per_image": 0.47107438016528924
+      },
+      {
+        "threshold": 0.55,
+        "pathology_macro_f1": 0.05381573744563069,
+        "false_positives_per_image": 0.33884297520661155
+      },
+      {
+        "threshold": 0.6000000000000001,
+        "pathology_macro_f1": 0.05094714639191984,
+        "false_positives_per_image": 0.18181818181818182
+      },
+      {
+        "threshold": 0.6500000000000001,
+        "pathology_macro_f1": 0.047732305421143276,
+        "false_positives_per_image": 0.09917355371900827
+      },
+      {
+        "threshold": 0.7000000000000001,
+        "pathology_macro_f1": 0.03296703296703297,
+        "false_positives_per_image": 0.0743801652892562
+      },
+      {
+        "threshold": 0.7500000000000001,
+        "pathology_macro_f1": 0.003773584905660377,
+        "false_positives_per_image": 0.01652892561983471
+      },
+      {
+        "threshold": 0.8,
+        "pathology_macro_f1": 0.0,
+        "false_positives_per_image": 0.008264462809917356
+      }
+    ],
+    "protocol_sha256": "1cfa09d4681e9a5e2e81480ce2f4248e0530c41e3203269d42fad5ce557bcec8",
+    "decided_before_holdout_predictions": true
+  },
+  "partitions": {
+    "train": {
+      "images": 681,
+      "boxes": 7128,
+      "threshold": 0.15000000000000002,
+      "map50": 0.7006268342994415,
+      "map50_95": 0.3445908299610833,
+      "false_positives_per_image": 6.221732745961821,
+      "classes_without_reference": [],
+      "by_class": [
+        {
+          "class_id": 0,
+          "class": "caries",
+          "support": 1426,
+          "tp": 535,
+          "fp": 685,
+          "fn": 891,
+          "precision": 0.4385245901639344,
+          "recall": 0.3751753155680224,
+          "f1": 0.4043839758125472,
+          "ap50": 0.35210630675961385,
+          "ap50_95": 0.13136654090306416
+        },
+        {
+          "class_id": 1,
+          "class": "lesion_periapical",
+          "support": 471,
+          "tp": 218,
+          "fp": 254,
+          "fn": 253,
+          "precision": 0.461864406779661,
+          "recall": 0.46284501061571126,
+          "f1": 0.46235418875927886,
+          "ap50": 0.4166743014571225,
+          "ap50_95": 0.15753087559183662
+        },
+        {
+          "class_id": 2,
+          "class": "diente_impactado",
+          "support": 371,
+          "tp": 361,
+          "fp": 69,
+          "fn": 10,
+          "precision": 0.8395348837209302,
+          "recall": 0.9730458221024259,
+          "f1": 0.9013732833957553,
+          "ap50": 0.9715432393102921,
+          "ap50_95": 0.5458521719680154
+        },
+        {
+          "class_id": 3,
+          "class": "restauracion",
+          "support": 2298,
+          "tp": 1691,
+          "fp": 1048,
+          "fn": 607,
+          "precision": 0.6173786053304126,
+          "recall": 0.7358572671888599,
+          "f1": 0.6714314075838793,
+          "ap50": 0.7159362241405389,
+          "ap50_95": 0.29955197811444756
+        },
+        {
+          "class_id": 4,
+          "class": "endodoncia",
+          "support": 1617,
+          "tp": 1417,
+          "fp": 1482,
+          "fn": 200,
+          "precision": 0.48878923766816146,
+          "recall": 0.8763141620284477,
+          "f1": 0.6275465013286095,
+          "ap50": 0.7735923078908595,
+          "ap50_95": 0.3470825230661682
+        },
+        {
+          "class_id": 5,
+          "class": "protesis_fija",
+          "support": 760,
+          "tp": 607,
+          "fp": 490,
+          "fn": 153,
+          "precision": 0.5533272561531449,
+          "recall": 0.7986842105263158,
+          "f1": 0.6537425955842757,
+          "ap50": 0.7623811460175972,
+          "ap50_95": 0.41934301957928116
+        },
+        {
+          "class_id": 6,
+          "class": "implante",
+          "support": 185,
+          "tp": 177,
+          "fp": 209,
+          "fn": 8,
+          "precision": 0.4585492227979275,
+          "recall": 0.9567567567567568,
+          "f1": 0.6199649737302978,
+          "ap50": 0.9121543145200668,
+          "ap50_95": 0.5114087005047703
+        }
+      ],
+      "detected_box_calibration": {
+        "target": "matched_detection_at_IoU0.5_among_predictions_above_0.05",
+        "n_predictions": 18891,
+        "ece_10_equal_width_bins": 0.08807012431241099,
+        "brier_detected_boxes_only": 0.133707552474724,
+        "patient_disease_probability": false,
+        "missed_objects_not_in_calibration_denominator": true,
+        "bins": [
+          {
+            "low": 0.0,
+            "high": 0.1,
+            "n": 6787,
+            "tp_fraction": 0.05377928392515102,
+            "mean_score": 0.07018204783592376
+          },
+          {
+            "low": 0.1,
+            "high": 0.2,
+            "n": 4514,
+            "tp_fraction": 0.1260522817899867,
+            "mean_score": 0.14058237031471904
+          },
+          {
+            "low": 0.2,
+            "high": 0.30000000000000004,
+            "n": 2146,
+            "tp_fraction": 0.2809878844361603,
+            "mean_score": 0.24643774608363644
+          },
+          {
+            "low": 0.30000000000000004,
+            "high": 0.4,
+            "n": 1486,
+            "tp_fraction": 0.5248990578734859,
+            "mean_score": 0.34846253488538725
+          },
+          {
+            "low": 0.4,
+            "high": 0.5,
+            "n": 1525,
+            "tp_fraction": 0.7750819672131147,
+            "mean_score": 0.4543274483524385
+          },
+          {
+            "low": 0.5,
+            "high": 0.6000000000000001,
+            "n": 1281,
+            "tp_fraction": 0.8602654176424668,
+            "mean_score": 0.5422070011973474
+          },
+          {
+            "low": 0.6000000000000001,
+            "high": 0.7000000000000001,
+            "n": 678,
+            "tp_fraction": 0.911504424778761,
+            "mean_score": 0.6476329299552602
+          },
+          {
+            "low": 0.7000000000000001,
+            "high": 0.8,
+            "n": 322,
+            "tp_fraction": 0.9347826086956522,
+            "mean_score": 0.7390277183944394
+          },
+          {
+            "low": 0.8,
+            "high": 0.9,
+            "n": 95,
+            "tp_fraction": 0.9473684210526315,
+            "mean_score": 0.8499185969955043
+          },
+          {
+            "low": 0.9,
+            "high": 1.0,
+            "n": 57,
+            "tp_fraction": 0.9824561403508771,
+            "mean_score": 0.9349137565545869
+          }
+        ]
+      },
+      "object_size": {
+        "area_lt_0.001": {
+          "reference_boxes": 1372,
+          "tp": 370,
+          "recall": 0.2696793002915452
+        },
+        "area_0.001_to_0.01": {
+          "reference_boxes": 5194,
+          "tp": 4104,
+          "recall": 0.7901424720831729
+        },
+        "area_ge_0.01": {
+          "reference_boxes": 562,
+          "tp": 532,
+          "recall": 0.9466192170818505
+        }
+      }
+    },
+    "val": {
+      "images": 121,
+      "boxes": 1254,
+      "threshold": 0.15000000000000002,
+      "map50": 0.632788968120259,
+      "map50_95": 0.2735197814512718,
+      "false_positives_per_image": 6.636363636363637,
+      "classes_without_reference": [],
+      "by_class": [
+        {
+          "class_id": 0,
+          "class": "caries",
+          "support": 263,
+          "tp": 73,
+          "fp": 121,
+          "fn": 190,
+          "precision": 0.37628865979381443,
+          "recall": 0.27756653992395436,
+          "f1": 0.31947483588621445,
+          "ap50": 0.2270829092751028,
+          "ap50_95": 0.069461629635272
+        },
+        {
+          "class_id": 1,
+          "class": "lesion_periapical",
+          "support": 88,
+          "tp": 28,
+          "fp": 58,
+          "fn": 60,
+          "precision": 0.32558139534883723,
+          "recall": 0.3181818181818182,
+          "f1": 0.3218390804597701,
+          "ap50": 0.23718265953830375,
+          "ap50_95": 0.06885250726965515
+        },
+        {
+          "class_id": 2,
+          "class": "diente_impactado",
+          "support": 69,
+          "tp": 60,
+          "fp": 26,
+          "fn": 9,
+          "precision": 0.6976744186046512,
+          "recall": 0.8695652173913043,
+          "f1": 0.7741935483870968,
+          "ap50": 0.8847587662987026,
+          "ap50_95": 0.4298969842385138
+        },
+        {
+          "class_id": 3,
+          "class": "restauracion",
+          "support": 385,
+          "tp": 271,
+          "fp": 195,
+          "fn": 114,
+          "precision": 0.5815450643776824,
+          "recall": 0.7038961038961039,
+          "f1": 0.63689776733255,
+          "ap50": 0.6545487331770905,
+          "ap50_95": 0.2559834692725957
+        },
+        {
+          "class_id": 4,
+          "class": "endodoncia",
+          "support": 277,
+          "tp": 235,
+          "fp": 269,
+          "fn": 42,
+          "precision": 0.4662698412698413,
+          "recall": 0.8483754512635379,
+          "f1": 0.6017925736235595,
+          "ap50": 0.7386843570455386,
+          "ap50_95": 0.30468119465883003
+        },
+        {
+          "class_id": 5,
+          "class": "protesis_fija",
+          "support": 138,
+          "tp": 110,
+          "fp": 88,
+          "fn": 28,
+          "precision": 0.5555555555555556,
+          "recall": 0.7971014492753623,
+          "f1": 0.6547619047619048,
+          "ap50": 0.7720573672589193,
+          "ap50_95": 0.39040309365644615
+        },
+        {
+          "class_id": 6,
+          "class": "implante",
+          "support": 34,
+          "tp": 32,
+          "fp": 46,
+          "fn": 2,
+          "precision": 0.41025641025641024,
+          "recall": 0.9411764705882353,
+          "f1": 0.5714285714285713,
+          "ap50": 0.9152079842481551,
+          "ap50_95": 0.3953595914275897
+        }
+      ],
+      "bootstrap95": {
+        "method": "image_percentile",
+        "patient_independence": "unknown",
+        "replicates": 1000,
+        "seed": 42,
+        "intervals": {
+          "map50": {
+            "low": 0.5919541197110042,
+            "high": 0.6728108861667909,
+            "valid_replicates": 1000
+          },
+          "map50_95": {
+            "low": 0.24267347416258905,
+            "high": 0.31103908150542037,
+            "valid_replicates": 1000
+          },
+          "caries/recall": {
+            "low": 0.21080369843527738,
+            "high": 0.3445692883895131,
+            "valid_replicates": 1000
+          },
+          "caries/ap50": {
+            "low": 0.17620619602049056,
+            "high": 0.2866607348790456,
+            "valid_replicates": 1000
+          },
+          "lesion_periapical/recall": {
+            "low": 0.2,
+            "high": 0.4298347613219094,
+            "valid_replicates": 1000
+          },
+          "lesion_periapical/ap50": {
+            "low": 0.13641605838094495,
+            "high": 0.355473513331054,
+            "valid_replicates": 1000
+          },
+          "diente_impactado/recall": {
+            "low": 0.7740694789081886,
+            "high": 0.9538636363636364,
+            "valid_replicates": 1000
+          },
+          "diente_impactado/ap50": {
+            "low": 0.788875523597092,
+            "high": 0.9586026963112964,
+            "valid_replicates": 1000
+          },
+          "restauracion/recall": {
+            "low": 0.6301454565264764,
+            "high": 0.7670836208879687,
+            "valid_replicates": 1000
+          },
+          "restauracion/ap50": {
+            "low": 0.585206035615593,
+            "high": 0.7233736251769393,
+            "valid_replicates": 1000
+          },
+          "endodoncia/recall": {
+            "low": 0.7962714392244593,
+            "high": 0.8953981732162879,
+            "valid_replicates": 1000
+          },
+          "endodoncia/ap50": {
+            "low": 0.6690002347322885,
+            "high": 0.8069085091558931,
+            "valid_replicates": 1000
+          },
+          "protesis_fija/recall": {
+            "low": 0.6368456744276165,
+            "high": 0.9454720279720279,
+            "valid_replicates": 1000
+          },
+          "protesis_fija/ap50": {
+            "low": 0.6307898196223856,
+            "high": 0.9040775496001595,
+            "valid_replicates": 1000
+          },
+          "implante/recall": {
+            "low": 0.7777777777777778,
+            "high": 1.0,
+            "valid_replicates": 1000
+          },
+          "implante/ap50": {
+            "low": 0.6772749647391489,
+            "high": 0.995,
+            "valid_replicates": 1000
+          }
+        }
+      },
+      "detected_box_calibration": {
+        "target": "matched_detection_at_IoU0.5_among_predictions_above_0.05",
+        "n_predictions": 3241,
+        "ece_10_equal_width_bins": 0.06967969420022598,
+        "brier_detected_boxes_only": 0.13254815598548833,
+        "patient_disease_probability": false,
+        "missed_objects_not_in_calibration_denominator": true,
+        "bins": [
+          {
+            "low": 0.0,
+            "high": 0.1,
+            "n": 1146,
+            "tp_fraction": 0.05235602094240838,
+            "mean_score": 0.07132056466975033
+          },
+          {
+            "low": 0.1,
+            "high": 0.2,
+            "n": 776,
+            "tp_fraction": 0.13015463917525774,
+            "mean_score": 0.1410813732840812
+          },
+          {
+            "low": 0.2,
+            "high": 0.30000000000000004,
+            "n": 363,
+            "tp_fraction": 0.25895316804407714,
+            "mean_score": 0.2477003727570053
+          },
+          {
+            "low": 0.30000000000000004,
+            "high": 0.4,
+            "n": 280,
+            "tp_fraction": 0.4357142857142857,
+            "mean_score": 0.3493777779596193
+          },
+          {
+            "low": 0.4,
+            "high": 0.5,
+            "n": 282,
+            "tp_fraction": 0.7304964539007093,
+            "mean_score": 0.45456400566489985
+          },
+          {
+            "low": 0.5,
+            "high": 0.6000000000000001,
+            "n": 194,
+            "tp_fraction": 0.8195876288659794,
+            "mean_score": 0.5451618460650297
+          },
+          {
+            "low": 0.6000000000000001,
+            "high": 0.7000000000000001,
+            "n": 100,
+            "tp_fraction": 0.87,
+            "mean_score": 0.646398252248764
+          },
+          {
+            "low": 0.7000000000000001,
+            "high": 0.8,
+            "n": 77,
+            "tp_fraction": 0.8961038961038961,
+            "mean_score": 0.7369167053854311
+          },
+          {
+            "low": 0.8,
+            "high": 0.9,
+            "n": 15,
+            "tp_fraction": 0.9333333333333333,
+            "mean_score": 0.8586342016855876
+          },
+          {
+            "low": 0.9,
+            "high": 1.0,
+            "n": 8,
+            "tp_fraction": 1.0,
+            "mean_score": 0.9286548048257828
+          }
+        ]
+      },
+      "object_size": {
+        "area_lt_0.001": {
+          "reference_boxes": 245,
+          "tp": 47,
+          "recall": 0.19183673469387755
+        },
+        "area_0.001_to_0.01": {
+          "reference_boxes": 915,
+          "tp": 679,
+          "recall": 0.7420765027322405
+        },
+        "area_ge_0.01": {
+          "reference_boxes": 94,
+          "tp": 83,
+          "recall": 0.8829787234042553
+        }
+      }
+    },
+    "test": {
+      "images": 94,
+      "boxes": 1033,
+      "threshold": 0.15000000000000002,
+      "map50": 0.7223359074290404,
+      "map50_95": 0.3390386102736286,
+      "false_positives_per_image": 7.0212765957446805,
+      "classes_without_reference": [],
+      "by_class": [
+        {
+          "class_id": 0,
+          "class": "caries",
+          "support": 137,
+          "tp": 53,
+          "fp": 70,
+          "fn": 84,
+          "precision": 0.43089430894308944,
+          "recall": 0.38686131386861317,
+          "f1": 0.4076923076923077,
+          "ap50": 0.3558397369121905,
+          "ap50_95": 0.1352132965644431
+        },
+        {
+          "class_id": 1,
+          "class": "lesion_periapical",
+          "support": 80,
+          "tp": 31,
+          "fp": 21,
+          "fn": 49,
+          "precision": 0.5961538461538461,
+          "recall": 0.3875,
+          "f1": 0.46969696969696967,
+          "ap50": 0.46660834665213813,
+          "ap50_95": 0.17509851283191374
+        },
+        {
+          "class_id": 2,
+          "class": "diente_impactado",
+          "support": 56,
+          "tp": 53,
+          "fp": 19,
+          "fn": 3,
+          "precision": 0.7361111111111112,
+          "recall": 0.9464285714285714,
+          "f1": 0.828125,
+          "ap50": 0.9209553803684238,
+          "ap50_95": 0.45604981363227637
+        },
+        {
+          "class_id": 3,
+          "class": "restauracion",
+          "support": 385,
+          "tp": 272,
+          "fp": 163,
+          "fn": 113,
+          "precision": 0.6252873563218391,
+          "recall": 0.7064935064935065,
+          "f1": 0.6634146341463415,
+          "ap50": 0.7302423176780583,
+          "ap50_95": 0.3121664128610746
+        },
+        {
+          "class_id": 4,
+          "class": "endodoncia",
+          "support": 261,
+          "tp": 250,
+          "fp": 284,
+          "fn": 11,
+          "precision": 0.4681647940074906,
+          "recall": 0.9578544061302682,
+          "f1": 0.6289308176100629,
+          "ap50": 0.8921902866035974,
+          "ap50_95": 0.43654679317119055
+        },
+        {
+          "class_id": 5,
+          "class": "protesis_fija",
+          "support": 89,
+          "tp": 76,
+          "fp": 76,
+          "fn": 13,
+          "precision": 0.5,
+          "recall": 0.8539325842696629,
+          "f1": 0.6307053941908715,
+          "ap50": 0.8047092106349762,
+          "ap50_95": 0.45334763961759367
+        },
+        {
+          "class_id": 6,
+          "class": "implante",
+          "support": 25,
+          "tp": 23,
+          "fp": 27,
+          "fn": 2,
+          "precision": 0.46,
+          "recall": 0.92,
+          "f1": 0.6133333333333333,
+          "ap50": 0.885806073153899,
+          "ap50_95": 0.40484780323690817
+        }
+      ],
+      "bootstrap95": {
+        "method": "image_percentile",
+        "patient_independence": "unknown",
+        "replicates": 1000,
+        "seed": 42,
+        "intervals": {
+          "map50": {
+            "low": 0.6832087005762214,
+            "high": 0.7576810581815171,
+            "valid_replicates": 1000
+          },
+          "map50_95": {
+            "low": 0.3118910592437757,
+            "high": 0.37294134111472105,
+            "valid_replicates": 1000
+          },
+          "caries/recall": {
+            "low": 0.2899929906542056,
+            "high": 0.47122685185185176,
+            "valid_replicates": 1000
+          },
+          "caries/ap50": {
+            "low": 0.26427934947154835,
+            "high": 0.4353161574179078,
+            "valid_replicates": 1000
+          },
+          "lesion_periapical/recall": {
+            "low": 0.2682926829268293,
+            "high": 0.4939759036144578,
+            "valid_replicates": 1000
+          },
+          "lesion_periapical/ap50": {
+            "low": 0.34740220873179295,
+            "high": 0.5742790067280547,
+            "valid_replicates": 1000
+          },
+          "diente_impactado/recall": {
+            "low": 0.8845588235294117,
+            "high": 1.0,
+            "valid_replicates": 1000
+          },
+          "diente_impactado/ap50": {
+            "low": 0.8514904344984671,
+            "high": 0.9750526738818132,
+            "valid_replicates": 1000
+          },
+          "restauracion/recall": {
+            "low": 0.6399292035398231,
+            "high": 0.7724736094820668,
+            "valid_replicates": 1000
+          },
+          "restauracion/ap50": {
+            "low": 0.676368421569309,
+            "high": 0.7809501994753174,
+            "valid_replicates": 1000
+          },
+          "endodoncia/recall": {
+            "low": 0.9331287914435783,
+            "high": 0.981885692983833,
+            "valid_replicates": 1000
+          },
+          "endodoncia/ap50": {
+            "low": 0.8498845806946206,
+            "high": 0.9319617055048434,
+            "valid_replicates": 1000
+          },
+          "protesis_fija/recall": {
+            "low": 0.7036324786324787,
+            "high": 0.9681254029658285,
+            "valid_replicates": 1000
+          },
+          "protesis_fija/ap50": {
+            "low": 0.6543837974499978,
+            "high": 0.9146108061741728,
+            "valid_replicates": 1000
+          },
+          "implante/recall": {
+            "low": 0.7647058823529411,
+            "high": 1.0,
+            "valid_replicates": 1000
+          },
+          "implante/ap50": {
+            "low": 0.6973616488181249,
+            "high": 0.976907164502855,
+            "valid_replicates": 1000
+          }
+        }
+      },
+      "detected_box_calibration": {
+        "target": "matched_detection_at_IoU0.5_among_predictions_above_0.05",
+        "n_predictions": 2827,
+        "ece_10_equal_width_bins": 0.0826524806883928,
+        "brier_detected_boxes_only": 0.13768316767072128,
+        "patient_disease_probability": false,
+        "missed_objects_not_in_calibration_denominator": true,
+        "bins": [
+          {
+            "low": 0.0,
+            "high": 0.1,
+            "n": 1014,
+            "tp_fraction": 0.07199211045364892,
+            "mean_score": 0.07009227236611604
+          },
+          {
+            "low": 0.1,
+            "high": 0.2,
+            "n": 657,
+            "tp_fraction": 0.1232876712328767,
+            "mean_score": 0.142105988693201
+          },
+          {
+            "low": 0.2,
+            "high": 0.30000000000000004,
+            "n": 310,
+            "tp_fraction": 0.2645161290322581,
+            "mean_score": 0.24656051272346127
+          },
+          {
+            "low": 0.30000000000000004,
+            "high": 0.4,
+            "n": 228,
+            "tp_fraction": 0.4868421052631579,
+            "mean_score": 0.3482608230490434
+          },
+          {
+            "low": 0.4,
+            "high": 0.5,
+            "n": 235,
+            "tp_fraction": 0.7446808510638298,
+            "mean_score": 0.45276651636083076
+          },
+          {
+            "low": 0.5,
+            "high": 0.6000000000000001,
+            "n": 206,
+            "tp_fraction": 0.9077669902912622,
+            "mean_score": 0.5435908376013191
+          },
+          {
+            "low": 0.6000000000000001,
+            "high": 0.7000000000000001,
+            "n": 111,
+            "tp_fraction": 0.8918918918918919,
+            "mean_score": 0.6451303233971467
+          },
+          {
+            "low": 0.7000000000000001,
+            "high": 0.8,
+            "n": 44,
+            "tp_fraction": 0.9318181818181818,
+            "mean_score": 0.7445667237043381
+          },
+          {
+            "low": 0.8,
+            "high": 0.9,
+            "n": 17,
+            "tp_fraction": 1.0,
+            "mean_score": 0.8488666029537425
+          },
+          {
+            "low": 0.9,
+            "high": 1.0,
+            "n": 5,
+            "tp_fraction": 1.0,
+            "mean_score": 0.9226606011390686
+          }
+        ]
+      },
+      "object_size": {
+        "area_lt_0.001": {
+          "reference_boxes": 130,
+          "tp": 45,
+          "recall": 0.34615384615384615
+        },
+        "area_0.001_to_0.01": {
+          "reference_boxes": 809,
+          "tp": 632,
+          "recall": 0.7812113720642769
+        },
+        "area_ge_0.01": {
+          "reference_boxes": 94,
+          "tp": 81,
+          "recall": 0.8617021276595744
+        }
+      }
+    },
+    "external": {
+      "images": 170,
+      "boxes": 2046,
+      "threshold": 0.15000000000000002,
+      "map50": 0.5707529487677162,
+      "map50_95": 0.25987154564216824,
+      "false_positives_per_image": 8.041176470588235,
+      "classes_without_reference": [],
+      "by_class": [
+        {
+          "class_id": 0,
+          "class": "caries",
+          "support": 294,
+          "tp": 102,
+          "fp": 228,
+          "fn": 192,
+          "precision": 0.3090909090909091,
+          "recall": 0.3469387755102041,
+          "f1": 0.3269230769230769,
+          "ap50": 0.305723010369927,
+          "ap50_95": 0.11845280968276473
+        },
+        {
+          "class_id": 1,
+          "class": "lesion_periapical",
+          "support": 105,
+          "tp": 30,
+          "fp": 62,
+          "fn": 75,
+          "precision": 0.32608695652173914,
+          "recall": 0.2857142857142857,
+          "f1": 0.3045685279187817,
+          "ap50": 0.22108728133204106,
+          "ap50_95": 0.07639853553853501
+        },
+        {
+          "class_id": 2,
+          "class": "diente_impactado",
+          "support": 111,
+          "tp": 96,
+          "fp": 37,
+          "fn": 15,
+          "precision": 0.7218045112781954,
+          "recall": 0.8648648648648649,
+          "f1": 0.7868852459016393,
+          "ap50": 0.7829742790767682,
+          "ap50_95": 0.4094233845543937
+        },
+        {
+          "class_id": 3,
+          "class": "restauracion",
+          "support": 840,
+          "tp": 609,
+          "fp": 487,
+          "fn": 231,
+          "precision": 0.5556569343065694,
+          "recall": 0.725,
+          "f1": 0.6291322314049587,
+          "ap50": 0.6227314590028089,
+          "ap50_95": 0.2537255329716371
+        },
+        {
+          "class_id": 4,
+          "class": "endodoncia",
+          "support": 497,
+          "tp": 408,
+          "fp": 407,
+          "fn": 89,
+          "precision": 0.5006134969325153,
+          "recall": 0.8209255533199196,
+          "f1": 0.6219512195121951,
+          "ap50": 0.6939678938416665,
+          "ap50_95": 0.29615301556100304
+        },
+        {
+          "class_id": 5,
+          "class": "protesis_fija",
+          "support": 183,
+          "tp": 119,
+          "fp": 127,
+          "fn": 64,
+          "precision": 0.483739837398374,
+          "recall": 0.6502732240437158,
+          "f1": 0.5547785547785548,
+          "ap50": 0.5636952144828274,
+          "ap50_95": 0.3027772502215563
+        },
+        {
+          "class_id": 6,
+          "class": "implante",
+          "support": 16,
+          "tp": 14,
+          "fp": 19,
+          "fn": 2,
+          "precision": 0.42424242424242425,
+          "recall": 0.875,
+          "f1": 0.5714285714285714,
+          "ap50": 0.8050915032679737,
+          "ap50_95": 0.3621702909652879
+        }
+      ],
+      "bootstrap95": {
+        "method": "image_percentile",
+        "patient_independence": "unknown",
+        "replicates": 1000,
+        "seed": 42,
+        "intervals": {
+          "map50": {
+            "low": 0.47307115060320387,
+            "high": 0.6292343841886705,
+            "valid_replicates": 991
+          },
+          "map50_95": {
+            "low": 0.22415896705785893,
+            "high": 0.3053246125895654,
+            "valid_replicates": 991
+          },
+          "caries/recall": {
+            "low": 0.25435244788283234,
+            "high": 0.42426510615133367,
+            "valid_replicates": 1000
+          },
+          "caries/ap50": {
+            "low": 0.2202291895386701,
+            "high": 0.3831914911026313,
+            "valid_replicates": 1000
+          },
+          "lesion_periapical/recall": {
+            "low": 0.18643082380764683,
+            "high": 0.39398101898101895,
+            "valid_replicates": 1000
+          },
+          "lesion_periapical/ap50": {
+            "low": 0.13442181577645085,
+            "high": 0.3494813891638656,
+            "valid_replicates": 1000
+          },
+          "diente_impactado/recall": {
+            "low": 0.761359396200814,
+            "high": 0.9381601094045866,
+            "valid_replicates": 1000
+          },
+          "diente_impactado/ap50": {
+            "low": 0.6496593274098231,
+            "high": 0.8896599528347735,
+            "valid_replicates": 1000
+          },
+          "restauracion/recall": {
+            "low": 0.6728916128708495,
+            "high": 0.767858111248838,
+            "valid_replicates": 1000
+          },
+          "restauracion/ap50": {
+            "low": 0.5496097778317846,
+            "high": 0.6929070780987501,
+            "valid_replicates": 1000
+          },
+          "endodoncia/recall": {
+            "low": 0.7437507711968976,
+            "high": 0.8827220724731366,
+            "valid_replicates": 1000
+          },
+          "endodoncia/ap50": {
+            "low": 0.5968694349220772,
+            "high": 0.7863036276298078,
+            "valid_replicates": 1000
+          },
+          "protesis_fija/recall": {
+            "low": 0.555541012216405,
+            "high": 0.7584038891757012,
+            "valid_replicates": 1000
+          },
+          "protesis_fija/ap50": {
+            "low": 0.47130271745940294,
+            "high": 0.6772603808647616,
+            "valid_replicates": 1000
+          },
+          "implante/recall": {
+            "low": 0.3333333333333333,
+            "high": 1.0,
+            "valid_replicates": 991
+          },
+          "implante/ap50": {
+            "low": 0.335,
+            "high": 0.9597058823529413,
+            "valid_replicates": 991
+          }
+        }
+      },
+      "detected_box_calibration": {
+        "target": "matched_detection_at_IoU0.5_among_predictions_above_0.05",
+        "n_predictions": 5458,
+        "ece_10_equal_width_bins": 0.07814687391700066,
+        "brier_detected_boxes_only": 0.13373779330199992,
+        "patient_disease_probability": false,
+        "missed_objects_not_in_calibration_denominator": true,
+        "bins": [
+          {
+            "low": 0.0,
+            "high": 0.1,
+            "n": 1926,
+            "tp_fraction": 0.04984423676012461,
+            "mean_score": 0.07009169495512702
+          },
+          {
+            "low": 0.1,
+            "high": 0.2,
+            "n": 1265,
+            "tp_fraction": 0.11146245059288537,
+            "mean_score": 0.1419642398892184
+          },
+          {
+            "low": 0.2,
+            "high": 0.30000000000000004,
+            "n": 553,
+            "tp_fraction": 0.2423146473779385,
+            "mean_score": 0.2482950173277967
+          },
+          {
+            "low": 0.30000000000000004,
+            "high": 0.4,
+            "n": 454,
+            "tp_fraction": 0.48237885462555063,
+            "mean_score": 0.3513540442425774
+          },
+          {
+            "low": 0.4,
+            "high": 0.5,
+            "n": 529,
+            "tp_fraction": 0.7145557655954632,
+            "mean_score": 0.4536445648435834
+          },
+          {
+            "low": 0.5,
+            "high": 0.6000000000000001,
+            "n": 444,
+            "tp_fraction": 0.7792792792792793,
+            "mean_score": 0.5472825764267294
+          },
+          {
+            "low": 0.6000000000000001,
+            "high": 0.7000000000000001,
+            "n": 211,
+            "tp_fraction": 0.8056872037914692,
+            "mean_score": 0.6480938232905492
+          },
+          {
+            "low": 0.7000000000000001,
+            "high": 0.8,
+            "n": 61,
+            "tp_fraction": 0.9180327868852459,
+            "mean_score": 0.7305885934438862
+          },
+          {
+            "low": 0.8,
+            "high": 0.9,
+            "n": 14,
+            "tp_fraction": 0.8571428571428571,
+            "mean_score": 0.8326939386980874
+          },
+          {
+            "low": 0.9,
+            "high": 1.0,
+            "n": 1,
+            "tp_fraction": 1.0,
+            "mean_score": 0.9052838087081909
+          }
+        ]
+      },
+      "object_size": {
+        "area_lt_0.001": {
+          "reference_boxes": 266,
+          "tp": 76,
+          "recall": 0.2857142857142857
+        },
+        "area_0.001_to_0.01": {
+          "reference_boxes": 1636,
+          "tp": 1180,
+          "recall": 0.7212713936430318
+        },
+        "area_ge_0.01": {
+          "reference_boxes": 144,
+          "tp": 122,
+          "recall": 0.8472222222222222
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "checked_on_utc": "2026-10-26",
+  "command": "gh repo view amadezco777/Denta_AI_model --json visibility,isPrivate,url",
+  "url": "https://github.com/amadezco777/Denta_AI_model",
+  "visibility": "PRIVATE",
+  "isPrivate": true,
+  "changed_visibility": false,
+  "pushed_changes": false
+}

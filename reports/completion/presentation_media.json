@@ -1,0 +1,26 @@
+{
+  "status": "verified",
+  "path": "C:\\Users\\crisc\\OneDrive\\Documents\\Denta_AI_model\\output\\presentation\\Dental_AI_Pitch_Semana6_20261026.mp4",
+  "bytes": 6314118,
+  "sha256": "b336a0619f8d564794c915fefdfb306ba5520be4e029b1144ed5677099fdef38",
+  "duration_seconds": 295.02,
+  "resolution": [
+    1280,
+    720
+  ],
+  "complete_stream_decode_passed": true,
+  "voice_disclosure": "Voz sintética genérica; no es la voz ni una clonación del autor.",
+  "subtitles": "C:\\Users\\crisc\\OneDrive\\Documents\\Denta_AI_model\\output\\presentation\\Dental_AI_Pitch_Semana6_20261026.srt",
+  "credits": "C:\\Users\\crisc\\OneDrive\\Documents\\Denta_AI_model\\output\\presentation\\CREDITOS_PITCH_SEMANA6.txt",
+  "private_local_storage": false,
+  "subtitle_timing": "Approximate cue timing within measured speech; excludes scene padding and uses two lines per cue.",
+  "contains_source_radiographs": false,
+  "included_in_general_archive": true,
+  "actual_model_sha256": "70b130153628b4564defae0d3542be4edef9eea147e2b2b4096b840761426d2e",
+  "official_questions_answer_video": false,
+  "visual_review": "Required separately for final delivery; this record checks encoding and provenance.",
+  "slides": 9,
+  "planned_seconds": 295,
+  "review_date": "2026-10-26",
+  "capture_date": "2026-10-20"
+}

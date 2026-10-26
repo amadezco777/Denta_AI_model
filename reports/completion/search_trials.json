@@ -1,0 +1,158 @@
+[
+  {
+    "trial": 0,
+    "params": {
+      "lr0": 0.0005514718587869892,
+      "weight_decay": 0.0015403596595019247,
+      "scale": 0.3061978796339918,
+      "imgsz": 640
+    },
+    "value": 0.021875871079365745,
+    "map50": 0.4669391526975199,
+    "map50_95": 0.20103615890514495,
+    "run": "C:\\Users\\crisc\\AppData\\Local\\DentalAI\\runs\\research_v2\\search_00"
+  },
+  {
+    "trial": 1,
+    "params": {
+      "lr0": 0.0003051362379613694,
+      "weight_decay": 1.3603546136118076e-05,
+      "scale": 0.3531616510212273,
+      "imgsz": 960
+    },
+    "value": 0.04759619965053917,
+    "map50": 0.5026724120257026,
+    "map50_95": 0.22477042181110743,
+    "run": "C:\\Users\\crisc\\AppData\\Local\\DentalAI\\runs\\research_v2\\search_01"
+  },
+  {
+    "trial": 2,
+    "params": {
+      "lr0": 0.0002114653616703159,
+      "weight_decay": 0.0017052641538983103,
+      "scale": 0.34135492428014763,
+      "imgsz": 640
+    },
+    "value": 0.00593112414473422,
+    "map50": 0.4377573786037193,
+    "map50_95": 0.192773467223728,
+    "run": "C:\\Users\\crisc\\AppData\\Local\\DentalAI\\runs\\research_v2\\search_02"
+  },
+  {
+    "trial": 3,
+    "params": {
+      "lr0": 0.00032864757839415207,
+      "weight_decay": 5.012686302434873e-05,
+      "scale": 0.23366475107128326,
+      "imgsz": 640
+    },
+    "value": 0.01812822330124023,
+    "map50": 0.468031854065785,
+    "map50_95": 0.19776737206820955,
+    "run": "C:\\Users\\crisc\\AppData\\Local\\DentalAI\\runs\\research_v2\\search_03"
+  },
+  {
+    "trial": 4,
+    "params": {
+      "lr0": 0.0010486361783805694,
+      "weight_decay": 2.0940138873937414e-05,
+      "scale": 0.1522506269873264,
+      "imgsz": 960
+    },
+    "value": 0.14332256193895115,
+    "map50": 0.5860805940231518,
+    "map50_95": 0.2537066792273207,
+    "run": "C:\\Users\\crisc\\AppData\\Local\\DentalAI\\runs\\research_v2\\search_04"
+  },
+  {
+    "trial": 5,
+    "params": {
+      "lr0": 0.0016767510257004177,
+      "weight_decay": 2.8804169778805483e-05,
+      "scale": 0.22998205344476408,
+      "imgsz": 640
+    },
+    "value": 0.07049717304180393,
+    "map50": 0.5255578492476499,
+    "map50_95": 0.2372929434464517,
+    "run": "C:\\Users\\crisc\\AppData\\Local\\DentalAI\\runs\\research_v2\\search_05"
+  },
+  {
+    "trial": 6,
+    "params": {
+      "lr0": 0.00094471062758524,
+      "weight_decay": 0.00011793966240664292,
+      "scale": 0.05186956748813379,
+      "imgsz": 960
+    },
+    "value": 0.15034412383129034,
+    "map50": 0.5782733412862893,
+    "map50_95": 0.252715564710155,
+    "run": "C:\\Users\\crisc\\AppData\\Local\\DentalAI\\runs\\research_v2\\search_06"
+  },
+  {
+    "trial": 7,
+    "params": {
+      "lr0": 0.0012620515603949385,
+      "weight_decay": 0.00026729819905720265,
+      "scale": 0.15302587955273517,
+      "imgsz": 960
+    },
+    "value": 0.1593546167789343,
+    "map50": 0.5807436968760011,
+    "map50_95": 0.25775808819018575,
+    "run": "C:\\Users\\crisc\\AppData\\Local\\DentalAI\\runs\\research_v2\\search_07"
+  },
+  {
+    "trial": 8,
+    "params": {
+      "lr0": 0.0009811716200131475,
+      "weight_decay": 0.0004010758736319359,
+      "scale": 0.38591976108089693,
+      "imgsz": 960
+    },
+    "value": 0.11689547449799574,
+    "map50": 0.5486457419668157,
+    "map50_95": 0.24209176615317185,
+    "run": "C:\\Users\\crisc\\AppData\\Local\\DentalAI\\runs\\research_v2\\search_08"
+  },
+  {
+    "trial": 9,
+    "params": {
+      "lr0": 0.0022391866944421793,
+      "weight_decay": 0.0019219976360163777,
+      "scale": 0.2279497416264258,
+      "imgsz": 960
+    },
+    "value": 0.17925537443297865,
+    "map50": 0.5880124218385016,
+    "map50_95": 0.2523789266030205,
+    "run": "C:\\Users\\crisc\\AppData\\Local\\DentalAI\\runs\\research_v2\\search_09"
+  },
+  {
+    "trial": 10,
+    "params": {
+      "lr0": 0.0002768954237813231,
+      "weight_decay": 0.0011199899111265547,
+      "scale": 0.2296998772946102,
+      "imgsz": 960
+    },
+    "value": 0.06032074099923414,
+    "map50": 0.5154836010693447,
+    "map50_95": 0.23188421775939097,
+    "run": "C:\\Users\\crisc\\AppData\\Local\\DentalAI\\runs\\research_v2\\search_10"
+  },
+  {
+    "trial": 11,
+    "params": {
+      "lr0": 0.002650212318137114,
+      "weight_decay": 0.0010110119430074426,
+      "scale": 0.25096845669583134,
+      "imgsz": 960
+    },
+    "value": 0.16227476888535225,
+    "map50": 0.5798626609493647,
+    "map50_95": 0.24080849951198974,
+    "run": "C:\\Users\\crisc\\AppData\\Local\\DentalAI\\runs\\research_v2\\search_11"
+  }
+]

@@ -1,0 +1,230 @@
+{
+  "baseline_n640_s42": {
+    "passed": true,
+    "absolute_tolerance": 0.0001,
+    "global_absolute_differences": {
+      "map50": 2.9482709607009383e-09,
+      "map50_95": 2.948271071723241e-10
+    },
+    "per_class_absolute_differences": {
+      "caries": {
+        "ap50": 2.0637896752662144e-08,
+        "ap50_95": 2.0637896738784356e-09
+      },
+      "lesion_periapical": {
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "diente_impactado": {
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "restauracion": {
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "endodoncia": {
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "protesis_fija": {
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "implante": {
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      }
+    }
+  },
+  "selected_n_s42": {
+    "passed": true,
+    "absolute_tolerance": 0.0001,
+    "global_absolute_differences": {
+      "map50": 0.0,
+      "map50_95": 5.551115123125783e-17
+    },
+    "per_class_absolute_differences": {
+      "caries": {
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "lesion_periapical": {
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "diente_impactado": {
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "restauracion": {
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "endodoncia": {
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "protesis_fija": {
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "implante": {
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      }
+    }
+  },
+  "selected_n_s43": {
+    "passed": true,
+    "absolute_tolerance": 0.0001,
+    "global_absolute_differences": {
+      "map50": 0.0,
+      "map50_95": 5.551115123125783e-17
+    },
+    "per_class_absolute_differences": {
+      "caries": {
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "lesion_periapical": {
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "diente_impactado": {
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "restauracion": {
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "endodoncia": {
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "protesis_fija": {
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "implante": {
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      }
+    }
+  },
+  "selected_n_s44": {
+    "passed": true,
+    "absolute_tolerance": 0.0001,
+    "global_absolute_differences": {
+      "map50": 0.0,
+      "map50_95": 5.551115123125783e-17
+    },
+    "per_class_absolute_differences": {
+      "caries": {
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "lesion_periapical": {
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "diente_impactado": {
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "restauracion": {
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "endodoncia": {
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "protesis_fija": {
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "implante": {
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      }
+    }
+  },
+  "architecture_26n_s42": {
+    "passed": true,
+    "absolute_tolerance": 0.0001,
+    "global_absolute_differences": {
+      "map50": 0.0,
+      "map50_95": 5.551115123125783e-17
+    },
+    "per_class_absolute_differences": {
+      "caries": {
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "lesion_periapical": {
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "diente_impactado": {
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "restauracion": {
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "endodoncia": {
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "protesis_fija": {
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "implante": {
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      }
+    }
+  },
+  "ablation_mosaic_s42": {
+    "passed": true,
+    "absolute_tolerance": 0.0001,
+    "global_absolute_differences": {
+      "map50": 0.0,
+      "map50_95": 2.5788824254413534e-06
+    },
+    "per_class_absolute_differences": {
+      "caries": {
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "lesion_periapical": {
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "diente_impactado": {
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "restauracion": {
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "endodoncia": {
+        "ap50": 0.0,
+        "ap50_95": 1.8052176978700096e-05
+      },
+      "protesis_fija": {
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "implante": {
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+## Comunicación del proyecto y propuesta de evaluación institucional
+
+### Propuesta de valor y destinatarios
+
+Los materiales de la semana 6 distinguen comunicar una métrica de explicar qué tarea cambia para quien decide, y separan el pitch de una presentación extensa al cliente (Villegas, 2026). En Dental AI, la propuesta de valor actual es un prototipo local para que investigadores, docentes y revisores odontológicos inspeccionen propuestas espaciales de siete categorías, comparen errores y conserven resultados trazables. El funcionamiento de esa representación y su exportación se comprobaron. No se midieron tiempos de lectura con participantes, ahorro económico, mejora de decisiones clínicas o disposición de instituciones a adoptar el sistema.
+
+Una presentación defendible distingue tres niveles. El resultado observado es la ejecución del modelo y su acuerdo con las anotaciones disponibles. La interpretación técnica reconoce diferencias entre clases, el descenso en origen externo y los límites de referencia. La hipótesis de impacto plantea que las propuestas podrían apoyar una tarea de revisión; tendría que contrastarse mediante un diseño específico con usuarios. El mAP50 no se traduce en porcentaje de pacientes correctamente diagnosticados ni en dinero ahorrado. La latencia del servicio tampoco equivale al tiempo total de una lectura odontológica.
+
+### Presentación de la evidencia y demostración
+
+El pitch de apoyo revisado conserva la estructura de problema, datos, solución, optimización, demostración, resultados, ética y cierre. Incorpora una petición concreta: revisar la preparación de un piloto institucional de investigación, sin atribuir una autorización clínica. El material obligatorio del proyecto fija cinco minutos como límite estricto, aunque sus tiempos por bloque suman cinco minutos y medio. La distribución adoptada suma 295 segundos, reserva cinco segundos de margen y conserva sesenta segundos para la demostración real. La presentación ampliada para un cliente desarrolla alcance, recursos, gobernanza e impacto por medir, conforme a la orientación de la semana 6 (Villegas, 2026).
+
+La demostración general utiliza capturas reales del sistema entregado con controles sintéticos identificados y sin radiografías del corpus. El caso válido comprueba inferencia, cajas, tabla y exportación; otros dos casos muestran rechazo por formato y tamaño. La comprobación radiográfica separada sobre dos ejemplos locales permanece registrada. Un patrón sintético que produce propuestas del detector no constituye un negativo clínico ni prueba desempeño diagnóstico. Los límites del selector automatizado, del seguimiento de descargas de Chrome y de la inspección móvil se conservan en la evidencia técnica; no se convierten en resultados positivos por exigencia de presentación.
+
+### Plan propuesto e impacto por medir
+
+Se propone, como fase futura y no ejecutada, un piloto de investigación de ocho semanas sujeto a permisos y disponibilidad profesional. Las dos primeras semanas se dedicarían a propósito, responsabilidades y acceso; las siguientes dos, a referencia y calidad; las semanas cinco y seis, a evaluación supervisada; y las dos últimas, a análisis e informe de continuidad. El comienzo de cada fase depende de cumplir sus condiciones. El cronograma no acredita que exista una institución participante, profesionales contratados o aprobación ética obtenida.
+
+Los indicadores propuestos son tiempo por tarea, carga de propuestas y correcciones por imagen, acuerdo y omisiones frente a una referencia adjudicada, y costo observado de preparación, revisión y mantenimiento. Deben compararse con la situación inicial de la institución mediante un diseño previo que controle orden y aprendizaje. El tamaño de muestra y los criterios clínicos requieren un protocolo profesional antes de recoger resultados. No se fijaron retrospectivamente condiciones de éxito a partir de las reservas actuales.
+
+La presentación ampliada incluye un escenario económico ilustrativo con horas, tarifas y exclusiones explícitas. No constituye una cotización, un costo efectivamente pagado ni una estimación de retorno de inversión. La decisión futura podría ser continuar, limitar el uso a docencia o detener la fase siguiente si la referencia, el desempeño o la carga de revisión no justifican avanzar. Comunicar esa posibilidad permite defender el aporte técnico sin prometer beneficios asistenciales o comerciales que este estudio no midió.
+

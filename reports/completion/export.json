@@ -1,0 +1,128 @@
+{
+  "format": "ONNX_FP32_opset17_batch1_static_no_embedded_NMS",
+  "path": "C:\\Users\\crisc\\AppData\\Local\\DentalAI\\runs\\research_v2\\selected_n_s42\\weights\\best.onnx",
+  "checkpoint_bytes": 5496218,
+  "model_parameters": 2591205,
+  "sha256": "a1fcf0640fea692f1aafd4634947ada03263ed163c0ad598041d4b65bb13836d",
+  "bytes": 10780015,
+  "validation_images": 12,
+  "raw_output_parity": [
+    {
+      "sample_id": "train_1066",
+      "max_absolute_error": 0.001007080078125,
+      "mean_absolute_error": 1.0097907761519309e-05,
+      "max_absolute_coordinate_error": 0.001007080078125,
+      "max_absolute_class_score_error": 1.6987323760986328e-06,
+      "allclose_atol0.02_rtol0.001": true,
+      "class_scores_allclose_atol0.0001_rtol0.0001": true
+    },
+    {
+      "sample_id": "train_1071",
+      "max_absolute_error": 0.00164794921875,
+      "mean_absolute_error": 1.0743523489509244e-05,
+      "max_absolute_coordinate_error": 0.00164794921875,
+      "max_absolute_class_score_error": 1.430511474609375e-06,
+      "allclose_atol0.02_rtol0.001": true,
+      "class_scores_allclose_atol0.0001_rtol0.0001": true
+    },
+    {
+      "sample_id": "train_1073",
+      "max_absolute_error": 0.0008544921875,
+      "mean_absolute_error": 1.0372434189775959e-05,
+      "max_absolute_coordinate_error": 0.0008544921875,
+      "max_absolute_class_score_error": 1.0728836059570312e-06,
+      "allclose_atol0.02_rtol0.001": true,
+      "class_scores_allclose_atol0.0001_rtol0.0001": true
+    },
+    {
+      "sample_id": "train_1081",
+      "max_absolute_error": 0.001556396484375,
+      "mean_absolute_error": 1.0232667591481004e-05,
+      "max_absolute_coordinate_error": 0.001556396484375,
+      "max_absolute_class_score_error": 1.430511474609375e-06,
+      "allclose_atol0.02_rtol0.001": true,
+      "class_scores_allclose_atol0.0001_rtol0.0001": true
+    },
+    {
+      "sample_id": "train_1104",
+      "max_absolute_error": 0.0009765625,
+      "mean_absolute_error": 1.0211517292191274e-05,
+      "max_absolute_coordinate_error": 0.0009765625,
+      "max_absolute_class_score_error": 9.5367431640625e-07,
+      "allclose_atol0.02_rtol0.001": true,
+      "class_scores_allclose_atol0.0001_rtol0.0001": true
+    },
+    {
+      "sample_id": "train_1109",
+      "max_absolute_error": 0.001373291015625,
+      "mean_absolute_error": 1.011372842185665e-05,
+      "max_absolute_coordinate_error": 0.001373291015625,
+      "max_absolute_class_score_error": 1.7881393432617188e-06,
+      "allclose_atol0.02_rtol0.001": true,
+      "class_scores_allclose_atol0.0001_rtol0.0001": true
+    },
+    {
+      "sample_id": "train_1112",
+      "max_absolute_error": 0.000885009765625,
+      "mean_absolute_error": 9.859432793746237e-06,
+      "max_absolute_coordinate_error": 0.000885009765625,
+      "max_absolute_class_score_error": 2.3245811462402344e-06,
+      "allclose_atol0.02_rtol0.001": true,
+      "class_scores_allclose_atol0.0001_rtol0.0001": true
+    },
+    {
+      "sample_id": "train_1127",
+      "max_absolute_error": 0.00103759765625,
+      "mean_absolute_error": 1.0645293514244258e-05,
+      "max_absolute_coordinate_error": 0.00103759765625,
+      "max_absolute_class_score_error": 1.7881393432617188e-06,
+      "allclose_atol0.02_rtol0.001": true,
+      "class_scores_allclose_atol0.0001_rtol0.0001": true
+    },
+    {
+      "sample_id": "train_1134",
+      "max_absolute_error": 0.0009765625,
+      "mean_absolute_error": 1.015233647194691e-05,
+      "max_absolute_coordinate_error": 0.0009765625,
+      "max_absolute_class_score_error": 1.2516975402832031e-06,
+      "allclose_atol0.02_rtol0.001": true,
+      "class_scores_allclose_atol0.0001_rtol0.0001": true
+    },
+    {
+      "sample_id": "train_1143",
+      "max_absolute_error": 0.0018310546875,
+      "mean_absolute_error": 1.0105522051162552e-05,
+      "max_absolute_coordinate_error": 0.0018310546875,
+      "max_absolute_class_score_error": 1.1920928955078125e-06,
+      "allclose_atol0.02_rtol0.001": true,
+      "class_scores_allclose_atol0.0001_rtol0.0001": true
+    },
+    {
+      "sample_id": "train_1146",
+      "max_absolute_error": 0.00128173828125,
+      "mean_absolute_error": 1.0216544978902675e-05,
+      "max_absolute_coordinate_error": 0.00128173828125,
+      "max_absolute_class_score_error": 1.4901161193847656e-06,
+      "allclose_atol0.02_rtol0.001": true,
+      "class_scores_allclose_atol0.0001_rtol0.0001": true
+    },
+    {
+      "sample_id": "train_1153",
+      "max_absolute_error": 0.001373291015625,
+      "mean_absolute_error": 1.0199395546806045e-05,
+      "max_absolute_coordinate_error": 0.001373291015625,
+      "max_absolute_class_score_error": 1.519918441772461e-06,
+      "allclose_atol0.02_rtol0.001": true,
+      "class_scores_allclose_atol0.0001_rtol0.0001": true
+    }
+  ],
+  "all_parity_checks_passed": true,
+  "forward_only_cpu_4threads": {
+    "repeats": 36,
+    "torch_median_ms": 83.26684999337886,
+    "torch_p95_ms": 128.5768499947153,
+    "onnx_median_ms": 63.50240000028862,
+    "onnx_p95_ms": 78.51232499524485
+  },
+  "nms_and_end_to_end_equivalence": "Application continues using verified PyTorch; raw ONNX tensor parity does not certify every downstream implementation."
+}

@@ -1,0 +1,99 @@
+{
+  "started_at_utc": "2026-10-20T07:20:06.453683+00:00",
+  "stages": {
+    "evaluation": {
+      "status": "completed",
+      "started_at_utc": "2026-10-20T08:26:36.671821+00:00",
+      "command": [
+        "C:\\Users\\crisc\\OneDrive\\Documents\\Denta_AI_model\\.venv-training\\Scripts\\python.exe",
+        "scripts/evaluation/evaluate_research.py"
+      ],
+      "finished_at_utc": "2026-10-20T08:32:10.957688+00:00",
+      "returncode": 0
+    },
+    "deployment": {
+      "status": "completed",
+      "started_at_utc": "2026-10-20T08:32:10.968225+00:00",
+      "command": [
+        "C:\\Users\\crisc\\OneDrive\\Documents\\Denta_AI_model\\.venv-training\\Scripts\\python.exe",
+        "scripts/evaluation/verify_deployment.py"
+      ],
+      "finished_at_utc": "2026-10-20T08:32:39.572099+00:00",
+      "returncode": 0
+    },
+    "quick_tests": {
+      "status": "completed",
+      "started_at_utc": "2026-10-20T08:32:39.574824+00:00",
+      "command": [
+        "C:\\Users\\crisc\\OneDrive\\Documents\\Denta_AI_model\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "--junitxml=reports/tests_completion_final.xml"
+      ],
+      "finished_at_utc": "2026-10-20T08:32:55.257486+00:00",
+      "returncode": 0
+    },
+    "integration_tests": {
+      "status": "completed",
+      "started_at_utc": "2026-10-20T08:32:55.259487+00:00",
+      "command": [
+        "C:\\Users\\crisc\\OneDrive\\Documents\\Denta_AI_model\\.venv-training\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-o",
+        "addopts=",
+        "-m",
+        "integration",
+        "-q",
+        "--junitxml=reports/tests_completion_integration_final.xml"
+      ],
+      "finished_at_utc": "2026-10-20T08:33:45.804494+00:00",
+      "returncode": 0
+    },
+    "figures": {
+      "status": "completed",
+      "started_at_utc": "2026-10-20T08:33:45.806946+00:00",
+      "command": [
+        "C:\\Users\\crisc\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "output/tesis/completion_figures.py"
+      ],
+      "finished_at_utc": "2026-10-20T08:33:49.127902+00:00",
+      "returncode": 0
+    },
+    "notebooks": {
+      "status": "completed",
+      "started_at_utc": "2026-10-20T08:33:49.129159+00:00",
+      "command": [
+        "C:\\Users\\crisc\\OneDrive\\Documents\\Denta_AI_model\\.venv-training\\Scripts\\python.exe",
+        "scripts/evaluation/build_notebooks.py"
+      ],
+      "finished_at_utc": "2026-10-20T08:33:58.279579+00:00",
+      "returncode": 0
+    },
+    "guide_and_repository": {
+      "status": "completed",
+      "started_at_utc": "2026-10-20T08:33:58.281579+00:00",
+      "command": [
+        "C:\\Users\\crisc\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "output/tesis/write_project_docs.py"
+      ],
+      "finished_at_utc": "2026-10-20T08:33:58.455660+00:00",
+      "returncode": 0
+    },
+    "thesis_source": {
+      "status": "completed",
+      "started_at_utc": "2026-10-20T08:33:58.457316+00:00",
+      "command": [
+        "C:\\Users\\crisc\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "output/tesis/rewrite_research.py"
+      ],
+      "finished_at_utc": "2026-10-20T08:33:58.854081+00:00",
+      "returncode": 0
+    }
+  },
+  "status": "completed",
+  "observed_training_pid": 35032,
+  "current_stage": null,
+  "finished_at_utc": "2026-10-20T08:33:58.855086+00:00"
+}
