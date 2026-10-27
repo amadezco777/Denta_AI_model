@@ -1,10 +1,35 @@
 # Dental X-Ray AI
 
+![Python](https://img.shields.io/badge/python-3.12%20%7C%203.14-blue)
+![Ultralytics](https://img.shields.io/badge/Ultralytics-YOLO11-purple)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Tests](https://github.com/amadezco777/Denta_AI_model/actions/workflows/tests.yml/badge.svg)
+[![App](https://img.shields.io/badge/app-desplegada-1e73d2)](https://dental-xray-app-chi.vercel.app)
+
 Detección de hallazgos dentales en radiografías panorámicas con YOLO: siete categorías, desde caries hasta implantes, cada una localizada con su caja y su puntuación.
 
 Proyecto integrador de la **Maestría en Inteligencia Artificial de la Universidad Espíritu Santo (UEES)**, asignatura «Proyecto Integrador», con la tutora Gladys Villegas. Entrega: 28 de octubre de 2026.
 
 > **Alcance:** prototipo académico de investigación y docencia. **No** es un dispositivo médico, no da diagnósticos y no sustituye el criterio del odontólogo. Que no haya cajas en una imagen **no** descarta patología.
+
+**App desplegada:** https://dental-xray-app-chi.vercel.app (acceso con cuenta de demostración, entregada a la tutora).
+
+## Contenido
+
+1. [En una mirada](#1-en-una-mirada)
+2. [Equipo](#2-equipo)
+3. [Ecosistema del proyecto](#3-ecosistema-del-proyecto)
+4. [Taxonomía](#4-taxonomía)
+5. [Modelos y resultados](#5-modelos-y-resultados)
+6. [Cómo se construyó](#6-cómo-se-construyó)
+7. [Aplicaciones](#7-aplicaciones)
+8. [Limitaciones](#8-limitaciones)
+9. [Próximos pasos](#9-próximos-pasos)
+10. [Estructura del repositorio](#10-estructura-del-repositorio)
+11. [Puesta en marcha](#11-puesta-en-marcha)
+12. [Datos, privacidad y licencias](#12-datos-privacidad-y-licencias)
+13. [Videos](#13-videos)
+14. [Agradecimientos y referencias](#14-agradecimientos-y-referencias)
 
 ---
 
@@ -21,14 +46,14 @@ Proyecto integrador de la **Maestría en Inteligencia Artificial de la Universid
 
 ## 2. Equipo
 
-| Integrante | Aporte |
+| Integrante | Rol |
 |---|---|
-| **Anthony Madezco** | Parte técnica: selección y depuración de datos, taxonomía, pipeline y modelo v1, app clínica (API y front) y etiquetador. |
 | **Cristhian Pazmiño** | Documento final (tesis APA 7) y estudio de investigación v2: cohorte, búsqueda de hiperparámetros y evaluación completa. |
+| **Anthony Madezco** | Parte técnica: selección y depuración de datos, taxonomía, pipeline y modelo v1, app clínica (API y front) y etiquetador. |
 
 ## 3. Ecosistema del proyecto
 
-El proyecto se reparte en tres repositorios privados:
+El proyecto se reparte en tres repositorios. Este es público; la app y el etiquetador son privados porque versionan pesos y datos sujetos a la licencia del dataset (acceso a solicitud):
 
 | Repositorio | Qué es | Estado |
 |---|---|---|
@@ -131,7 +156,7 @@ Los dos pipelines conviven: el v2 entrena con `src/training/train_research.py` y
 
 ## 7. Aplicaciones
 
-- **App clínica (producción):** [dental-xray-app](https://github.com/amadezco777/dental-xray-app). Flujo: subir la radiografía → revisar los hallazgos de la IA (aceptar o descartar) → firmar con contraseña → PDF con QR y SHA-256 → envío por correo → verificación pública en `/verificar/<código>`. Cada doctor ve solo a sus pacientes (RLS en Supabase).
+- **App clínica (producción):** https://dental-xray-app-chi.vercel.app, código en [dental-xray-app](https://github.com/amadezco777/dental-xray-app). Solo hay cuentas por invitación; para la evaluación existe una cuenta de demostración con pacientes ficticios. Guía paso a paso en [`docs/manual_usuario.md`](docs/manual_usuario.md). Flujo: subir la radiografía → revisar los hallazgos de la IA (aceptar o descartar) → firmar con contraseña → PDF con QR y SHA-256 → envío por correo → verificación pública en `/verificar/<código>`. Cada doctor ve solo a sus pacientes (RLS en Supabase).
 - **App local de demostración (v2):** `app/start.ps1` levanta `http://127.0.0.1:8089`. Permite cargar una imagen, ver las cajas y descargar un CSV. No guarda imágenes.
 
 ## 8. Limitaciones
@@ -175,7 +200,21 @@ pytest -m "not integration"     # pruebas rápidas; las de entrenamiento real: p
 
 ## 12. Datos, privacidad y licencias
 
-- **Muresanu** solo permite uso no comercial en investigación y docencia, y prohíbe redistribuirlo. Por eso las imágenes, los datos derivados y los pesos **no se versionan**, y los repos son privados. Fuente oficial: https://doi.org/10.5281/zenodo.15487430
+- **Muresanu** solo permite uso no comercial en investigación y docencia, y prohíbe redistribuirlo. Por eso las imágenes, los datos derivados y los pesos **no se versionan** aquí: este repo publica solo código, documentación y métricas agregadas. Fuente oficial: https://doi.org/10.5281/zenodo.15487430
 - **Ultralytics** es AGPL-3.0 (ver [`licenses/`](licenses/)).
 - **El código propio** es MIT (ver [`LICENSE`](LICENSE)). Esa licencia no se extiende a los datos ni a las dependencias.
 - Uso de IA: el desarrollo contó con asistentes de IA para código y documentación. Los resultados provienen de ejecuciones registradas.
+
+## 13. Videos
+
+| Video | Enlace |
+|---|---|
+| Pitch (5 minutos) | *Por agregar* |
+| Respuestas a las preguntas oficiales | *Por agregar* |
+
+## 14. Agradecimientos y referencias
+
+- A la tutora Gladys Villegas, por la guía durante el proyecto integrador.
+- Mureșanu, S., Hedeșiu, M., & Iacob, L.-M. (2025). *Dataset for automating dental condition detection on panoramic radiographs* [Data set]. Zenodo. https://doi.org/10.5281/zenodo.15487430
+- Ultralytics YOLO11 (AGPL-3.0). https://github.com/ultralytics/ultralytics
+- Bibliografía completa en [`docs/references.md`](docs/references.md).
