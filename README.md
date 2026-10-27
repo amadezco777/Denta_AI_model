@@ -209,7 +209,7 @@ pytest -m "not integration"     # pruebas rápidas; las de entrenamiento real: p
 
 | Video | Enlace |
 |---|---|
-| Pitch (5 minutos) | *Por agregar* |
+| Pitch (5 minutos) | [Ver en Google Drive](https://drive.google.com/file/d/1iCUAdhEzvkTML2ly1USlSnh-86CNn2Eo/view?usp=sharing) |
 | Respuestas a las preguntas oficiales | [Ver en Google Drive](https://drive.google.com/file/d/1OFQnjniEDa4mD9Dn6reTTm_vP9zD4aOt/view?usp=sharing) |
 
 ## 14. Agradecimientos y referencias
